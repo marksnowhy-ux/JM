@@ -1,0 +1,30 @@
+{
+  "version": "v1",
+  "created": "2026-09-23",
+  "model": "ElasticNet (sklearn), StandardScaler 前置",
+  "random_seed": 42,
+  "inputs": {
+    "train_mixture": "A_data_value/regmix_tables/train_mixture_1m.csv",
+    "train_loss": "A_data_value/regmix_tables/train_pile_loss_1m.csv",
+    "quality_domain_scores": "modeling_v1/outputs/quality_domain_scores_v1.csv",
+    "domain_mapping": "A_data_value/domain_mapping_guide.csv",
+    "test_sets": {
+      "test_1m": ["A_data_value/regmix_tables/test_mixture_1m.csv", "A_data_value/regmix_tables/test_pile_loss_1m.csv"],
+      "test_60m": ["A_data_value/regmix_tables/test_mixture_60m.csv", "A_data_value/regmix_tables/test_pile_loss_60m.csv"],
+      "test_1B": ["A_data_value/regmix_tables/test_mixture_1B.csv", "A_data_value/regmix_tables/test_pile_loss_1B.csv"]
+    }
+  },
+  "renormalize_mixture": true,
+  "feature_variants": {
+    "base": "17 配比 + 153 个二次项 (p_i*p_j, i<=j), 共 170 维",
+    "with_Qp": "base + Q(p) 质量加权特征（仅 direct/near_direct 映射的 6 个域参与加权）, 共 171 维"
+  },
+  "cv": {"method": "KFold", "n_splits": 5, "shuffle": true},
+  "hyper_grid": {
+    "alpha": "logspace(-5, 2, 30)",
+    "l1_ratio": [0.1, 0.3, 0.5, 0.7, 0.9, 1.0]
+  },
+  "elasticnet": {"max_iter": 100000},
+  "targets": "13 个 metric/the_pile_*_val_loss + mean_loss（共 14 个目标，逐目标拟合）",
+  "notes": "est_10b/est_70b 为外推表（非实测），v1 不纳入评估，留作后续敏感性分析；test_60m/test_1B 为不同参数规模的真实检验配方，用于考察响应面的规模稳健性"
+}

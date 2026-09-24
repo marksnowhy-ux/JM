@@ -1,0 +1,23 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# ---- 数据(不纳入仓库, 见 data/README.md) ----
+data/raw/*
+!data/raw/.gitkeep
+data/intermediate/
+data/preprocessed/
+
+# ---- 运行产物 ----
+logs/
+*.log
+
+# ---- 打包快照 ----
+*.zip
+
+# ---- IDE ----
+.idea/
+.vscode/

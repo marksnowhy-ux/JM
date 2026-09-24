@@ -1,0 +1,62 @@
+{
+  "version": "v1",
+  "created": "2026-09-23",
+  "description": "A1/A2/A3 质量信号预处理参数（问题一：22 维质量评价）",
+  "inputs": {
+    "A1": "A_data_value/slimpajama_quality_signal_sample.jsonl.xz",
+    "A2": "A_data_value/slimpajama_quality_extended/arxiv_part-6777d8857c6e-000486.jsonl.xz",
+    "A3": "A_data_value/slimpajama_quality_extended/github_part-6777d8857c6e-000275.jsonl.xz",
+    "domain_mapping": "A_data_value/domain_mapping_guide.csv"
+  },
+  "list_indicator_compress": "mean",
+  "outlier": {
+    "method": "mad_robust_z",
+    "threshold": 5.0,
+    "treatment": "winsorize",
+    "winsor_bounds": [0.01, 0.99]
+  },
+  "missing": {
+    "impute": "domain_median",
+    "fallback": "global_median",
+    "min_domain_count": 30
+  },
+  "standardize": "global_zscore_times_direction",
+  "indicator_directions": {
+    "fineweb_edu": 1,
+    "fluency_en": 1,
+    "modernbert_cleanliness": 1,
+    "modernbert_readability": 1,
+    "modernbert_reasoning": 1,
+    "modernbert_professionalism": 1,
+    "qurater": 1,
+    "ad_en": -1,
+    "rps_doc_unigram_entropy": 1,
+    "rps_doc_frac_unique_words": 1,
+    "rps_lines_ending_with_terminal_punctution_mark": 1,
+    "rps_doc_frac_no_alph_words": -1,
+    "rps_doc_frac_chars_top_2gram": -1,
+    "rps_doc_frac_chars_top_3gram": -1,
+    "rps_lines_uppercase_letter_fraction": -1,
+    "rps_lines_numerical_chars_fraction": -1,
+    "dsir_books": 1,
+    "dsir_wiki": 1,
+    "dsir_math": 1,
+    "rps_doc_word_count": 1,
+    "rps_doc_num_sentences": 1,
+    "rps_doc_mean_word_length": 1
+  },
+  "direction_rationale": {
+    "negative": "ad_en(广告度), rps_doc_frac_no_alph_words(非字母词占比), rps_doc_frac_chars_top_2gram/3gram(字符重复), rps_lines_uppercase_letter_fraction(大写占比), rps_lines_numerical_chars_fraction(数字字符占比)——数值越高文本质量越差，标准化后取负向",
+    "neutral_flagged": "dsir_*(域亲和性而非质量), rps_doc_word_count/num_sentences(长度), rps_doc_mean_word_length(词长)——方向中立，v1 保留原向进入 q_all22，同时输出剔除这些指标的 q_core16 作稳健性对照"
+  },
+  "quality_score": {
+    "primary": "q_all22_equal_weight",
+    "secondary": "q_core16_equal_weight",
+    "core_excluded": ["dsir_books", "dsir_wiki", "dsir_math", "rps_doc_word_count", "rps_doc_num_sentences", "rps_doc_mean_word_length"]
+  },
+  "domain_estimate_preference": {
+    "arxiv": "A2_full",
+    "github": "A3_full",
+    "others": "A1_sample"
+  }
+}

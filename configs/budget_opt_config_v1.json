@@ -1,0 +1,48 @@
+{
+  "version": "v1",
+  "created": "2026-09-23",
+  "eta": 0.0002,
+  "Lctx_crit_analytic": 30000,
+  "Lctx_crit_note": "C_attn=C_train ⟺ η·Lctx=6 ⟺ Lctx=6/η=3e4; 由 C7 的可行取值做敏感性, 30000 为解析临界参考点",
+  "budgets_FLOPs": [1e19, 1e20, 1e21, 1e22, 1e23, 1e24],
+  "recommended_budgets": [1e19, 1e22, 1e24],
+  "g_functions": {
+    "exp": "g(Q)=1e7*exp(6Q)",
+    "pow": "g(Q)=5e9*Q^4",
+    "log": "g(Q)=2e9*ln(1+10Q)"
+  },
+  "Q0": {
+    "primary": 0.5,
+    "sensitivity": [0.3, 0.7],
+    "rationale": "B6 锚定 Q=1↔Pile 默认数据质量(单锚点), z 分数到 (0,1] 的仿射标定欠定; 按题面允许取合理假设中点 0.5 为主案, 敏感性覆盖 0.3/0.7; 质量通道参数 θ_Q 取自 B6 尺度"
+  },
+  "delta": {
+    "primary": "read_from_recipe_effect_N_scaling_v1.csv(mean_loss)",
+    "sensitivity": [0.0, -0.5],
+    "zero_point_note": "Δ_p 零点取 test_1m 256 组 mean_loss 均值(5.2823); 标度律 L0 锚定 B1 Pythia 默认配比, 两基准未逐点校准, L 绝对水平含约 0.06 nats 口径差, 相对比较与最优配置不受影响"
+  },
+  "recipe_scenarios": {
+    "empirical_best": "test_1m 实测 Loss 最优配方(主案; 前两问结果直接采用, 无外推)",
+    "enet_trust_region": "ENet 响应面在实测最优配方 ±0.05 信赖域内细化(轻度内插)",
+    "mean_zero": "平均配方(Δ_p=0, 参照系)",
+    "note": "无约束 ENet 单纯形最优为外推伪影(L̂=-3.16, 距评测凸包 0.45), 仅记录不采用"
+  },
+  "structural_shift_scan": {
+    "budgets": "logspace(19, 24, 41)",
+    "g_types": ["exp", "log"],
+    "Lctx": 8192,
+    "indicators": ["regime_Q(Q*贴下界/内点/贴上界)", "主导成本分量更替", "N*,D* 局部标度指数 eN=dlnN*/dlnC, eD=dlnD*/dlnC"]
+  },
+  "solver": {
+    "method": "L-BFGS-B",
+    "vars": ["lnN", "Q"],
+    "N_bounds": [1e5, 1e13],
+    "multistart_lnN": [7.0, 9.0, 11.0, 12.5],
+    "multistart_Q_mode": ["floor", "mid", "ceiling"],
+    "note": "D 由预算约束解析消去: D=C/((6+η·Lctx)·N+[g(Q)-g(Q0)]+), 目标对 D 单调递减故预算必取满"
+  },
+  "validity": {
+    "B1_support": "N∈[0.07,12]B, D∈[0.13,300]B",
+    "beyond_flag": "N*>12B 或 D*>300B 时标注 beyond_B1_support(外推, 依据 B4/B5/B10 验证形状可迁移)"
+  }
+}

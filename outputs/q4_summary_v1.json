@@ -1,0 +1,151 @@
+{
+  "version": "v1",
+  "created": "2026-09-23",
+  "capability_metric": "Average of 6-dim (Open LLM Leaderboard v2)",
+  "open_license_criteria": [
+    "apache-2.0",
+    "gemma",
+    "llama2",
+    "llama3",
+    "llama3.1",
+    "llama3.2",
+    "mit"
+  ],
+  "type_layering": {
+    "pretrained": [
+      "🟢 pretrained",
+      "🟩 continuously pretrained"
+    ]
+  },
+  "time_axis": {
+    "C1": "Submission Date (2024-06~2025-03, 口径统一)",
+    "C3": "Year (2019-2025; 历史段≤2023 与 Leaderboard 段口径断裂)"
+  },
+  "scale_elasticity": [
+    {
+      "subset": "all",
+      "n": 4573,
+      "slope_per_log10N": 13.517457452219483,
+      "intercept": 10.759227391305647,
+      "r2": 0.39225160813657256,
+      "se": 0.24886793453300565
+    },
+    {
+      "subset": "open",
+      "n": 2328,
+      "slope_per_log10N": 13.37867929922263,
+      "intercept": 10.711992722378078,
+      "r2": 0.41734744781974736,
+      "se": 0.32776632650596405
+    },
+    {
+      "subset": "open_pretrained",
+      "n": 232,
+      "slope_per_log10N": 6.46260535135775,
+      "intercept": 8.850163212066315,
+      "r2": 0.4649917035150294,
+      "se": 0.45708963591669016
+    },
+    {
+      "subset": "open_chat",
+      "n": 2096,
+      "slope_per_log10N": 14.518328865756494,
+      "intercept": 10.208976109004078,
+      "r2": 0.398455375368033,
+      "se": 0.38982740883081457
+    }
+  ],
+  "bridge_fit": [
+    {
+      "comparability": "High (same model, same validation set)",
+      "n": 7,
+      "intercept": 7.671652427888804,
+      "slope": -0.8816640389378871,
+      "r2": 0.15797947135489132,
+      "pearson": -0.39746631474238425,
+      "loss_range": [
+        2.0933,
+        2.5978
+      ]
+    },
+    {
+      "comparability": "Medium (different validation set, approximate)",
+      "n": 68,
+      "intercept": 61.433676866943955,
+      "slope": -19.18460703517313,
+      "r2": 0.25249899244136487,
+      "pearson": -0.5024927784967311,
+      "loss_range": [
+        1.65,
+        2.84
+      ]
+    },
+    {
+      "comparability": "ALL",
+      "n": 75,
+      "intercept": 62.960911561383526,
+      "slope": -20.416881507928036,
+      "r2": 0.26011525492301735,
+      "pearson": -0.5100149555875957
+    }
+  ],
+  "frontier_decomposition": [
+    {
+      "metric": "beta_N_pretrained",
+      "value": 6.46260535135775
+    },
+    {
+      "metric": "leaderboard_frontier_trend_per_year",
+      "value": 10.510791998127415,
+      "r2": 0.3413443177375865,
+      "p": 0.07612603627083973
+    },
+    {
+      "metric": "leaderboard_frontier_plateau_level",
+      "value": 46.032056045893455
+    },
+    {
+      "metric": "note",
+      "value": "Leaderboard 段(2024-06~2025-03)开源前沿平台期: 前沿~47分, 参数~70B, 规模扩张与非规模技术均无显著净贡献; 历史段(2019-2023)规模扩张主导但口径断裂, 不作数值连读"
+    }
+  ],
+  "compute_frontier_annual_growth_dex": 0.6462474375765643,
+  "forecast": [
+    {
+      "horizon_months": 12,
+      "scenario": "plateau_continue",
+      "point_forecast": 46.66132247862437,
+      "ci5": 39.955112739485365,
+      "ci95": 78.7101758997469,
+      "ci_method": "moving_block_bootstrap(block=3)",
+      "note": "平台延续主案"
+    },
+    {
+      "horizon_months": 12,
+      "scenario": "slowdown_scale",
+      "point_forecast": 47.60102196201067,
+      "ci5": 40.894812222871664,
+      "ci95": 79.6498753831332,
+      "ci_method": "moving_block_bootstrap(block=3)",
+      "note": "算力放缓+规模弹性(能力增量量级估算)"
+    },
+    {
+      "horizon_months": 24,
+      "scenario": "plateau_continue",
+      "point_forecast": 46.66132247862437,
+      "ci5": 43.66704221770485,
+      "ci95": 97.820709179225,
+      "ci_method": "moving_block_bootstrap(block=3)",
+      "note": "平台延续主案"
+    },
+    {
+      "horizon_months": 24,
+      "scenario": "slowdown_scale",
+      "point_forecast": 48.54072144539696,
+      "ci5": 45.54644118447744,
+      "ci95": 99.70010814599759,
+      "ci_method": "moving_block_bootstrap(block=3)",
+      "note": "算力放缓+规模弹性(能力增量量级估算)"
+    }
+  ]
+}

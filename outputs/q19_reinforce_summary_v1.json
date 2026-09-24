@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "created": "2026-09-23",
+  "partA_conflict_params": {
+    "grid": "λ∈{0,0.25,0.5,1.0} × τ∈{0.5,1.0,1.5}",
+    "min_spearman_vs_main": 0.9999999999999999,
+    "max_abs_delta_sigma": 0.3555301802876406,
+    "conclusion": "域级排序对消解参数稳健"
+  },
+  "partB_openweights_crossval": {
+    "n_matched": 96,
+    "agreement_rate": 0.6770833333333334,
+    "note": "赛题允许'Hub License 或 Epoch AI 的 Open model weights?'二选一并说明口径; 本交叉验证量化两口径的一致性"
+  }
+}

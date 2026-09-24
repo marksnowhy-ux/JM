@@ -1,0 +1,14 @@
+loss_domain,dm_law_test_r2,spearman
+metric/the_pile_arxiv_val_loss,0.8249449317411255,0.9587870508125428
+metric/the_pile_freelaw_val_loss,0.9298648450100845,0.9790155069810024
+metric/the_pile_pubmed_central_val_loss,0.8996445968390715,0.9535605973907072
+metric/the_pile_wikipedia_en_val_loss,0.923896503042372,0.9679059853513388
+metric/the_pile_dm_mathematics_val_loss,0.6774646658623855,0.8593528267338061
+metric/the_pile_github_val_loss,0.8732462323251363,0.9750507839322498
+metric/the_pile_stackexchange_val_loss,0.858590033261337,0.9776636530098419
+metric/the_pile_gutenberg_pg_19_val_loss,0.9167482799631675,0.9762624456397343
+metric/the_pile_pile_cc_val_loss,0.9169986428450536,0.9656857976653693
+metric/the_pile_ubuntu_irc_val_loss,0.7588530208730642,0.8456948100251773
+metric/the_pile_hackernews_val_loss,0.8151269972924529,0.9072177557793544
+metric/the_pile_pubmed_abstracts_val_loss,0.9449086867216391,0.9908288509956509
+metric/the_pile_uspto_backgrounds_val_loss,0.9558344043757652,0.9775921263447013

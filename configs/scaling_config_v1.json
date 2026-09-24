@@ -1,0 +1,34 @@
+{
+  "version": "v1",
+  "created": "2026-09-23",
+  "random_seed": 42,
+  "classical_law": {
+    "form": "L0(N,D) = E + A*N^(-alpha) + B*D^(-beta)",
+    "primary_fit_space": "linear",
+    "sensitivity_fit_space": "log",
+    "bounds": {"E": [0.5, 3.5], "A": [1e-3, 1e7], "alpha": [0.05, 1.5], "B": [1e-3, 1e7], "beta": [0.05, 1.5]},
+    "inits": [
+      [1.8, 10, 0.4, 10, 0.4],
+      [2.0, 100, 0.34, 100, 0.28],
+      [1.7, 4.6e5, 0.34, 1.4e5, 0.28],
+      [1.5, 1000, 0.5, 1000, 0.5]
+    ]
+  },
+  "quality_extension": {
+    "anchor_policy": "L0 五参数固定为 B1 真实数据拟合值; 半合成数据不反哺经典项, 仅识别质量项参数(转移系数口径)",
+    "candidates": {
+      "M1_offset": "L = L0 + theta_Q*(Q0 - Q)",
+      "M2_D_interact": "L = L0 + theta_Q*(Q0 - Q)*(D/100)^(-gamma)",
+      "M4_effective_tokens": "L = E + A*N^(-alpha) + B*(D*(Q/Q0)^kappa)^(-beta)"
+    },
+    "param_bounds": {"theta_Q": [0, 10], "Q0": [0.05, 2.0], "gamma": [-2, 2], "kappa": [-3, 3]},
+    "cv": {"folds": 5, "seed": 42},
+    "sensitivity_free_joint_fit": true
+  },
+  "validation": {
+    "affine_shape_check": "B2/B4/B5 与 B1 验证集/分词不同, 报告原始指标 + a+b*Lhat 仿射校准后 R2 与 Spearman 秩相关",
+    "b3_strata": "按 interpolated 标志分层评估",
+    "b10_note": "B10 为估算 Loss(非实测), 仅作拟合外推一致性检查, 不构成独立验证"
+  },
+  "outputs_version": "v1"
+}

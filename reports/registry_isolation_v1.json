@@ -1,0 +1,104 @@
+{
+  "created": "2026-09-23",
+  "principle": "边界声明制+独立退化方案",
+  "units": {
+    "unit1": {
+      "name": "问题一·数据质量评价与配比建模",
+      "scripts": [
+        "p0_inspect_inputs.py",
+        "p1_preprocess_quality_v1.py",
+        "p2_fit_regmix_enet_v1.py",
+        "p3_summarize_v1.py",
+        "p14_q1_outlier_methods_v1.py"
+      ],
+      "own_data": [
+        "A_data_value"
+      ],
+      "boundary": {},
+      "fallback": "本问为链条根, 天然独立: 仅用 A 类数据与域映射表, 不引用任何他问产物",
+      "undeclared_refs": [],
+      "missing_boundary": []
+    },
+    "unit2": {
+      "name": "问题二·广义标度律",
+      "scripts": [
+        "p4_inspect_B.py",
+        "p5_fit_scaling_classical_v1.py",
+        "p6_fit_quality_extension_v1.py",
+        "p7_recipe_effect_scaling_v1.py",
+        "p15_q2_sensitivity_comparison_v1.py",
+        "p18_gap_closure_v1.py"
+      ],
+      "own_data": [
+        "B_scaling_laws"
+      ],
+      "boundary": {
+        "from_unit1": [
+          "regmix_enet_models_v1.joblib",
+          "regmix_enet_coefficients_v1.csv",
+          "test_mixture_1m.csv",
+          "test_pile_loss_1m.csv",
+          "q1_impact_summary_v1.csv"
+        ],
+        "from_unit3": [
+          "budget_optimal_primary_v1.csv"
+        ]
+      },
+      "fallback": "退出配方通道: L=L0+θ_Q 项即可自洽(仅 B 类数据); Δ_p 项退化为 0 或采用文献 Chinchilla 常数直接拟合 L0",
+      "undeclared_refs": [],
+      "missing_boundary": []
+    },
+    "unit3": {
+      "name": "问题三·算力预算优化",
+      "scripts": [
+        "p8_budget_optimization_v1.py",
+        "p9_summarize_budget_v1.py",
+        "p16_q3_stratification_v1.py"
+      ],
+      "own_data": [
+        "C_efficiency_evolution/model_architecture_metadata.csv"
+      ],
+      "boundary": {
+        "from_unit1": [
+          "regmix_enet_models_v1.joblib",
+          "test_mixture_1m.csv",
+          "test_pile_loss_1m.csv"
+        ],
+        "from_unit2": [
+          "scaling_classical_params_v1.json",
+          "scaling_quality_extension_v1.json",
+          "recipe_effect_N_scaling_v1.csv"
+        ]
+      },
+      "fallback": "不依赖他问: L0 参数采用文献 Hoffmann 2022(Chinchilla) 公开常数(E=1.69/α=0.34/β=0.28), 质量通道关闭(Q=Q0), 配方通道关闭(Δ_p=0)——优化问题结构不变, 退化为经典 N-D 二维预算优化",
+      "undeclared_refs": [],
+      "missing_boundary": []
+    },
+    "unit4": {
+      "name": "问题四·桥接、分解与前沿预测",
+      "scripts": [
+        "p10_inspect_C.py",
+        "p11b_probe_groups.py",
+        "p11_c8_aggregate_v1.py",
+        "p12_probe_match.py",
+        "p13b_probe_frontier.py",
+        "p13_bridge_decompose_forecast_v1.py",
+        "p17_q4_ablation_v1.py",
+        "p19_review_reinforce_v1.py"
+      ],
+      "own_data": [
+        "C_efficiency_evolution"
+      ],
+      "boundary": {},
+      "fallback": "本问无跨问数值依赖, 无需退化方案; 排除 C7(他问数据域)之外的引用由审计保证",
+      "undeclared_refs": [],
+      "missing_boundary": []
+    }
+  },
+  "violations": [],
+  "checks": {
+    "undeclared_cross_refs": 0,
+    "missing_boundary_files": 0,
+    "isolation_passed": true
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": "q1-conflict-hierarchy-v1",
+  "signals": {
+    "correlation": "5 组分数组间 Pearson 相关（识别系统性负相关组对）",
+    "std_dev": "单文档组间标准差（离散度）",
+    "semantic": "组对语义对立强度矩阵（指标实际含义）",
+    "composite_impact": "一致度加权前后 Q 变化 deltaQ（综合指标影响）"
+  },
+  "fusion_weights": {
+    "std": 0.3,
+    "weighted_divergence": 0.5,
+    "deltaQ": 0.2
+  },
+  "thresholds": {
+    "P50": -0.05377458481843758,
+    "P75": 0.5980491701374434,
+    "P90": 1.2018225461467398
+  },
+  "levels": [
+    {
+      "level": "L0",
+      "n_docs": 25615,
+      "share": 0.5
+    },
+    {
+      "level": "L1",
+      "n_docs": 12807,
+      "share": 0.2499902400936951
+    },
+    {
+      "level": "L2",
+      "n_docs": 7685,
+      "share": 0.1500097599063049
+    },
+    {
+      "level": "L3",
+      "n_docs": 5123,
+      "share": 0.1
+    }
+  ],
+  "high_conflict_domains_count": 7
+}

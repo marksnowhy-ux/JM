@@ -1,0 +1,67 @@
+# 算力约束下提升大语言模型能力的资源配置建模
+
+数学建模竞赛 **F 题** 的完整求解实现，覆盖四个递进问题：
+
+1. **问题一 · 质量评价与数据配比** — 15 指标质量协议 + 冻结 A1 参考 ECDF + 多指标冲突分层处理（L0–L3）+ Data Mixing Laws 指数式逐域配比建模 + GBDT。
+2. **问题二 · 广义标度律** — 经典标度律 `L₀ = E + A·N⁻ᵅ + B·D⁻ᵝ`，扩展质量项 `θ_Q` 与配方项 `θ_p(N)`。
+3. **问题三 · 预算优化** — 可分解优化 + 三成本函数 + 结构性转移识别。
+4. **问题四 · Loss-Benchmark 桥接与前沿预测** — C8 逐任务聚合 + 分层桥接 + 规模弹性 + 前沿预测。
+
+## 仓库结构
+
+```
+math-modeling-f-question/
+├── src/f_model/            # 全部流水线脚本(按 p 序号编排)
+│   ├── qcommon.py          # 路径推导(REPO/ROOT/MV)与日志
+│   ├── p0_*.py ... p25_*.py
+│   └── __init__.py
+├── data/README.md          # 原始数据放置说明(数据不入库)
+├── outputs/                # 四问全部最终结果(CSV/JSON/joblib/xlsx)
+├── figures/                # 分析图(PNG)
+├── configs/                # 各环节参数配置(JSON)
+├── reference/              # 题目与数据说明提取文本(只读参考)
+├── reports/                # 四问独立解答报告 + 隔离审计注册表
+├── pyproject.toml
+├── README.md
+└── LICENSE
+```
+
+## 快速开始
+
+```powershell
+# 1) 准备原始数据(二选一, 详见 data/README.md)
+$env:MODEL_DATA_DIR = "C:\path\to\real_attachments"   # 指向含 A_data_value/B_scaling_laws/C_efficiency_evolution 的目录
+
+# 2) 安装依赖
+pip install numpy pandas scipy scikit-learn matplotlib joblib
+
+# 3) 按问题顺序运行脚本(直接以脚本方式运行, 输出写入 outputs/、figures/)
+python src/f_model/p1_preprocess_quality_v1.py
+```
+
+> 脚本为顺序流水线，后一步依赖前一步在 `outputs/` 中产出的中间结果；
+> 每步通过 `qcommon.setup_logging` 在 `logs/` 记录运行日志。
+
+## 脚本与四问映射
+
+| 问题 | 脚本（按执行顺序） | 产出（`outputs/`） |
+|------|--------------------|--------------------|
+| 问题一 | `p0` → `p1` → `p2` → `p3` → `p21` → `p22` → `p23` → `p24` → `p25`（强化：`p14` 异常值、`p18` 缺口闭合、`p19` 审查） | `q1_*`、`quality_*`、`regmix_*`、`recipe_*` |
+| 问题二 | `p4` → `p5` → `p6` → `p7`（强化：`p15` 敏感性对比） | `scaling_*`、`q2_*`、`recipe_effect_*` |
+| 问题三 | `p8` → `p9`（强化：`p16` 分层） | `budget_*`、`structural_shift_*`、`q3_*` |
+| 问题四 | `p10` → `p11` → `p13`（探查：`p11b`/`p12`/`p13b`；强化：`p17` 消融） | `c8_*`、`bridge_*`、`scale_elasticity_*`、`frontier_*`、`q4_*` |
+| 通用 | `p20` 隔离审计 | `reports/registry_isolation_v1.json` |
+
+> 命名约定：`p{n}` 为流水线序号，`_v1` 为版本；探查类（`p*_probe_*`、`p*_inspect_*`）仅打印诊断信息，不写结果文件。
+
+## 结果说明
+
+- `outputs/` 下所有文件为最终/中间结果，`q1_opt_*` 与 `q1_conflict_*` 为问题一最终形态（15 指标协议 + 分层冲突）。
+- `outputs/q1_opt_q2_bridge_v1.json` 为问题一→问题二的机器可读接口（`Q_star_17` + `loss_scale_note`）。
+- `outputs/附录_数据利用与AI披露_v1.xlsx` 为附录（数据利用清单 + AI 使用披露）。
+
+## 参考
+
+- 题目：《算力约束下提升大语言模型能力的资源配置建模》
+- 数据说明：`reference/data_description_extract.txt`
+- 项目快照（历史归档，不入库）：`modeling_v1_20260923.zip`
