@@ -1,0 +1,142 @@
+{
+  "version": "v6",
+  "created": "2026-09-24",
+  "method": {
+    "zero_handling": "乘性零值替换 δ=4.99e-04(min非零/2)",
+    "ilr": "Helmert 正交基 16 维",
+    "dmlaw": "L=c+k·exp(t·p), c 折内剖面, t 重中心化 sum(t)=0"
+  },
+  "cv_summary": [
+    {
+      "model": "E1_ilr_linear_ridge",
+      "mean": 0.7261921668307185,
+      "std": 0.1496133719146989
+    },
+    {
+      "model": "E2_ilr_quad_enet",
+      "mean": 0.8344222298513179,
+      "std": 0.11062315182882794
+    }
+  ],
+  "mean_loss_cv": [
+    {
+      "model": "E1_ilr_linear_ridge",
+      "target": "mean_loss",
+      "cv_r2": 0.25027349983091063
+    },
+    {
+      "model": "E2_ilr_quad_enet",
+      "target": "mean_loss",
+      "cv_r2": 0.4787122636959332
+    }
+  ],
+  "test1m_macro": {
+    "E1_ilr_linear_ridge": 0.7906774131309594,
+    "E2_ilr_quad_enet": 0.8961695296897862,
+    "G_domain_selection": 0.8803180808961579,
+    "n_positive": 13,
+    "reference_repo": {
+      "linear_ridge": 0.7641,
+      "domain_selection": 0.8896
+    }
+  },
+  "domain_selection": [
+    {
+      "target": "metric/the_pile_arxiv_val_loss",
+      "cv_rmse_dmlaw": 0.645093026837628,
+      "cv_rmse_ilrquad": 0.4503742656918622,
+      "choice": "ilr_quad_ridge",
+      "test1m_r2": 0.848190188042016
+    },
+    {
+      "target": "metric/the_pile_freelaw_val_loss",
+      "cv_rmse_dmlaw": 0.38588230431886184,
+      "cv_rmse_ilrquad": 0.23871409257065376,
+      "choice": "ilr_quad_ridge",
+      "test1m_r2": 0.9242930808703066
+    },
+    {
+      "target": "metric/the_pile_pubmed_central_val_loss",
+      "cv_rmse_dmlaw": 0.4994909442657745,
+      "cv_rmse_ilrquad": 0.331967311320593,
+      "choice": "ilr_quad_ridge",
+      "test1m_r2": 0.9116590914564331
+    },
+    {
+      "target": "metric/the_pile_wikipedia_en_val_loss",
+      "cv_rmse_dmlaw": 0.22163673608761097,
+      "cv_rmse_ilrquad": 0.16634272075341222,
+      "choice": "ilr_quad_ridge",
+      "test1m_r2": 0.9262299723776997
+    },
+    {
+      "target": "metric/the_pile_dm_mathematics_val_loss",
+      "cv_rmse_dmlaw": 1.1466701143799631,
+      "cv_rmse_ilrquad": 0.721375691990571,
+      "choice": "ilr_quad_ridge",
+      "test1m_r2": 0.8057148239202011
+    },
+    {
+      "target": "metric/the_pile_github_val_loss",
+      "cv_rmse_dmlaw": 0.6067611561070063,
+      "cv_rmse_ilrquad": 0.4233049283615622,
+      "choice": "ilr_quad_ridge",
+      "test1m_r2": 0.884134937299884
+    },
+    {
+      "target": "metric/the_pile_stackexchange_val_loss",
+      "cv_rmse_dmlaw": 0.436514985232063,
+      "cv_rmse_ilrquad": 0.3001581601258983,
+      "choice": "ilr_quad_ridge",
+      "test1m_r2": 0.8882637982571008
+    },
+    {
+      "target": "metric/the_pile_gutenberg_pg_19_val_loss",
+      "cv_rmse_dmlaw": 0.19471325814163395,
+      "cv_rmse_ilrquad": 0.1718340390383783,
+      "choice": "ilr_quad_ridge",
+      "test1m_r2": 0.887102057365775
+    },
+    {
+      "target": "metric/the_pile_pile_cc_val_loss",
+      "cv_rmse_dmlaw": 0.118372314026757,
+      "cv_rmse_ilrquad": 0.12013571004034192,
+      "choice": "dmlaw_exp",
+      "test1m_r2": 0.886160304288368
+    },
+    {
+      "target": "metric/the_pile_ubuntu_irc_val_loss",
+      "cv_rmse_dmlaw": 0.5540290295116346,
+      "cv_rmse_ilrquad": 0.4571620612544729,
+      "choice": "ilr_quad_ridge",
+      "test1m_r2": 0.819193134533433
+    },
+    {
+      "target": "metric/the_pile_hackernews_val_loss",
+      "cv_rmse_dmlaw": 0.17150439484118382,
+      "cv_rmse_ilrquad": 0.16642168349486366,
+      "choice": "ilr_quad_ridge",
+      "test1m_r2": 0.8156784265986909
+    },
+    {
+      "target": "metric/the_pile_pubmed_abstracts_val_loss",
+      "cv_rmse_dmlaw": 0.2141186833948176,
+      "cv_rmse_ilrquad": 0.21567205743463042,
+      "choice": "dmlaw_exp",
+      "test1m_r2": 0.909645065327399
+    },
+    {
+      "target": "metric/the_pile_uspto_backgrounds_val_loss",
+      "cv_rmse_dmlaw": 0.17934066686271424,
+      "cv_rmse_ilrquad": 0.15950287787110312,
+      "choice": "ilr_quad_ridge",
+      "test1m_r2": 0.9378701713127461
+    }
+  ],
+  "p36_mean_loss_cv": {
+    "A_linear_enet": 0.2453463326425257,
+    "B_quad_enet": 0.5807176279858419,
+    "C_loglinear_mixture": 0.2430259060706853,
+    "D_clr_quad_enet": 0.3936114100396021
+  }
+}

@@ -18,6 +18,8 @@ from __future__ import annotations
 import logging
 import os
 import sys
+import time
+from contextlib import contextmanager
 from pathlib import Path
 
 # src/f_model/qcommon.py -> src/f_model -> src -> 仓库根
@@ -40,3 +42,13 @@ def setup_logging(log_path: Path) -> logging.Logger:
     sh.setFormatter(fmt)
     logging.basicConfig(level=logging.INFO, handlers=[fh, sh])
     return logging.getLogger()
+
+
+@contextmanager
+def timed(log: logging.Logger, label: str):
+    """计时上下文管理器: with timed(log, "标签"): ... → 输出耗时秒数(v3+ 脚本使用)。"""
+    t0 = time.perf_counter()
+    try:
+        yield
+    finally:
+        log.info(f"[计时] {label}: {time.perf_counter() - t0:.2f}s")

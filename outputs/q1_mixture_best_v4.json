@@ -1,0 +1,236 @@
+{
+  "version": "v4",
+  "created": "2026-09-24",
+  "models": {
+    "A_linear_enet": "p → L, ENet(基线 0.2348)",
+    "B_quad_enet": "p + 二次项 → L, ENet(基线 0.5680, 现行)",
+    "C_loglinear_mixture": "log(L−c) = logk + t·p, c 折内剖面(标度律一致形式)",
+    "D_clr_quad_enet": "CLR 变换 + 二次项, ENet(单纯形-native)"
+  },
+  "cv_summary": [
+    {
+      "model": "A_linear_enet",
+      "mean": 0.5771513499181128,
+      "std": 0.14189028497866213
+    },
+    {
+      "model": "B_quad_enet",
+      "mean": 0.721543326817834,
+      "std": 0.11044358809505085
+    },
+    {
+      "model": "C_loglinear_mixture",
+      "mean": 0.6931614120598122,
+      "std": 0.17716264873236692
+    },
+    {
+      "model": "D_clr_quad_enet",
+      "mean": 0.7646950310650552,
+      "std": 0.12112859979701802
+    }
+  ],
+  "mean_loss_cv": [
+    {
+      "model": "A_linear_enet",
+      "cv_r2": 0.2453463326425257
+    },
+    {
+      "model": "B_quad_enet",
+      "cv_r2": 0.5807176279858419
+    },
+    {
+      "model": "C_loglinear_mixture",
+      "cv_r2": 0.24302590607068533
+    },
+    {
+      "model": "D_clr_quad_enet",
+      "cv_r2": 0.3936114100396021
+    }
+  ],
+  "best_on_mean_loss": {
+    "model": "B_quad_enet",
+    "cv_r2": 0.5807176279858419
+  },
+  "test_eval": [
+    {
+      "set": "test_1m",
+      "note": "A/data",
+      "model": "A_linear_enet",
+      "n": 256,
+      "r2": 0.3248335738358713,
+      "rmse": 0.2281786714779777,
+      "spearman": 0.6258096818493933
+    },
+    {
+      "set": "test_1m",
+      "note": "A/data",
+      "model": "B_quad_enet",
+      "n": 256,
+      "r2": 0.6410300192007754,
+      "rmse": 0.16637907063453244,
+      "spearman": 0.7792107747768366
+    },
+    {
+      "set": "test_1m",
+      "note": "A/data",
+      "model": "C_loglinear_mixture",
+      "n": 256,
+      "r2": 0.392313830859248,
+      "rmse": 0.21647577551139086,
+      "spearman": 0.6321469443808652
+    },
+    {
+      "set": "test_1m",
+      "note": "A/data",
+      "model": "D_clr_quad_enet",
+      "n": 256,
+      "r2": 0.45552255246318074,
+      "rmse": 0.20490831218210792,
+      "spearman": 0.7159554531929502
+    },
+    {
+      "set": "test_60m",
+      "note": "A/data",
+      "model": "A_linear_enet",
+      "n": 256,
+      "r2": -47.29587991786005,
+      "rmse": 1.5211100058127076,
+      "spearman": 0.5587498569466697
+    },
+    {
+      "set": "test_60m",
+      "note": "A/data",
+      "model": "B_quad_enet",
+      "n": 256,
+      "r2": -44.59593717573548,
+      "rmse": 1.4779803323946343,
+      "spearman": 0.7773310540169375
+    },
+    {
+      "set": "test_60m",
+      "note": "A/data",
+      "model": "C_loglinear_mixture",
+      "n": 256,
+      "r2": -43.8136756212166,
+      "rmse": 1.4652470805140785,
+      "spearman": 0.5645413710231173
+    },
+    {
+      "set": "test_60m",
+      "note": "A/data",
+      "model": "D_clr_quad_enet",
+      "n": 256,
+      "r2": -47.64352895959505,
+      "rmse": 1.5265749047513726,
+      "spearman": 0.645618991760128
+    },
+    {
+      "set": "test_1B",
+      "note": "A/data",
+      "model": "A_linear_enet",
+      "n": 64,
+      "r2": -3766.3610558676373,
+      "rmse": 3.1880332801465463,
+      "spearman": 0.37312271062271063
+    },
+    {
+      "set": "test_1B",
+      "note": "A/data",
+      "model": "B_quad_enet",
+      "n": 64,
+      "r2": -3093.7607604976433,
+      "rmse": 2.889467175244973,
+      "spearman": 0.5339285714285714
+    },
+    {
+      "set": "test_1B",
+      "note": "A/data",
+      "model": "C_loglinear_mixture",
+      "n": 64,
+      "r2": -3649.1202927777827,
+      "rmse": 3.1380352153241606,
+      "spearman": 0.3657051282051282
+    },
+    {
+      "set": "test_1B",
+      "note": "A/data",
+      "model": "D_clr_quad_enet",
+      "n": 64,
+      "r2": -2938.5281854682253,
+      "rmse": 2.816067359110045,
+      "spearman": 0.7072344322344322
+    },
+    {
+      "set": "est_10b",
+      "note": "外推(非实测)",
+      "model": "A_linear_enet",
+      "n": 63,
+      "r2": -1388.1351306294694,
+      "rmse": 3.5823042271552206,
+      "spearman": -0.4495007680491552
+    },
+    {
+      "set": "est_10b",
+      "note": "外推(非实测)",
+      "model": "B_quad_enet",
+      "n": 63,
+      "r2": -1388.7486553943695,
+      "rmse": 3.583095219223049,
+      "spearman": -0.5981182795698926
+    },
+    {
+      "set": "est_10b",
+      "note": "外推(非实测)",
+      "model": "C_loglinear_mixture",
+      "n": 63,
+      "r2": -1343.410316292539,
+      "rmse": 3.524164210565491,
+      "spearman": -0.44326036866359453
+    },
+    {
+      "set": "est_10b",
+      "note": "外推(非实测)",
+      "model": "D_clr_quad_enet",
+      "n": 63,
+      "r2": -1380.723432993067,
+      "rmse": 3.5727347959740006,
+      "spearman": -0.5936539938556068
+    },
+    {
+      "set": "est_70b",
+      "note": "外推(非实测)",
+      "model": "A_linear_enet",
+      "n": 63,
+      "r2": -1448.2855885380623,
+      "rmse": 3.9651876567978293,
+      "spearman": -0.5122407834101382
+    },
+    {
+      "set": "est_70b",
+      "note": "外推(非实测)",
+      "model": "B_quad_enet",
+      "n": 63,
+      "r2": -1448.474265851407,
+      "rmse": 3.965445755205778,
+      "spearman": -0.670938940092166
+    },
+    {
+      "set": "est_70b",
+      "note": "外推(非实测)",
+      "model": "C_loglinear_mixture",
+      "n": 63,
+      "r2": -1406.0849328254035,
+      "rmse": 3.9070315213480917,
+      "spearman": -0.5088325652841782
+    },
+    {
+      "set": "est_70b",
+      "note": "外推(非实测)",
+      "model": "D_clr_quad_enet",
+      "n": 63,
+      "r2": -1441.0903763367808,
+      "rmse": 3.9553325026749557,
+      "spearman": -0.6634504608294931
+    }
+  ]
+}

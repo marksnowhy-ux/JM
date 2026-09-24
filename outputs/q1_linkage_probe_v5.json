@@ -1,0 +1,103 @@
+{
+  "version": "v5",
+  "created": "2026-09-24",
+  "recipe_linkage": [
+    {
+      "variant": "v1_equal15",
+      "n_recipe": 507,
+      "recipe_spearman": 0.04245155867209083,
+      "recipe_pearson": 0.051951572712883295,
+      "domain6_spearman": -0.3714285714285715,
+      "reverse13_spearman": -0.47802197802197804,
+      "increment_r2": 6.541686159433624e-07
+    },
+    {
+      "variant": "v3_critic15_hub",
+      "n_recipe": 507,
+      "recipe_spearman": -0.0004388490020169032,
+      "recipe_pearson": 0.04630393891060735,
+      "domain6_spearman": -0.7142857142857143,
+      "reverse13_spearman": -0.7307692307692307,
+      "increment_r2": 7.566103221723353e-08
+    },
+    {
+      "variant": "v4_comb18_hub",
+      "n_recipe": 507,
+      "recipe_spearman": -0.015099458353900167,
+      "recipe_pearson": 0.03529591337338868,
+      "domain6_spearman": -0.8285714285714287,
+      "reverse13_spearman": -0.8241758241758241,
+      "increment_r2": -0.0005661617732697355
+    },
+    {
+      "variant": "v4_comb18_lin",
+      "n_recipe": 507,
+      "recipe_spearman": -0.015104242296391108,
+      "recipe_pearson": 0.03530251366652605,
+      "domain6_spearman": -0.8285714285714287,
+      "reverse13_spearman": -0.8241758241758241,
+      "increment_r2": NaN
+    },
+    {
+      "variant": "interval_only3",
+      "n_recipe": 507,
+      "recipe_spearman": 0.023074720795326298,
+      "recipe_pearson": -0.08725192149653146,
+      "domain6_spearman": 0.14285714285714288,
+      "reverse13_spearman": 0.32967032967032966,
+      "increment_r2": 0.0005385051922583983
+    },
+    {
+      "variant": "v4_comb18_narrow",
+      "n_recipe": 507,
+      "recipe_spearman": -0.018888551547110916,
+      "recipe_pearson": 0.03303134331576662,
+      "domain6_spearman": -0.8285714285714287,
+      "reverse13_spearman": -0.8241758241758241,
+      "increment_r2": NaN
+    }
+  ],
+  "base_quadratic_cv_r2": 0.5805116271025084,
+  "interval_icc": [
+    {
+      "indicator": "rps_doc_word_count",
+      "icc_between_domain": 2.6344075698822476
+    },
+    {
+      "indicator": "rps_doc_num_sentences",
+      "icc_between_domain": 2.2757393798504593
+    },
+    {
+      "indicator": "rps_doc_mean_word_length",
+      "icc_between_domain": 0.1087012035095646
+    },
+    {
+      "indicator": "fineweb_edu",
+      "icc_between_domain": 0.23701413871047788
+    }
+  ],
+  "interval_quantiles_base": {
+    "rps_doc_word_count": [
+      1.0,
+      1.6812412373755872,
+      3.110252917353403,
+      4.008684021053593
+    ],
+    "rps_doc_num_sentences": [
+      0.0,
+      0.6020599913279624,
+      2.037426497940624,
+      2.8797429815811393
+    ],
+    "rps_doc_mean_word_length": [
+      3.954545454545455,
+      4.458578247082285,
+      9.222388059701489,
+      16.64097402597402
+    ]
+  },
+  "diagnosis": {
+    "saturation": "6 域 Spearman 各变体取值对比(见 recipe_linkage 表); 配方级 512 点与 13 域反向为主判据",
+    "duality": "quadratic(p) 基线已编码域成分 → +Q(p) 的增量 ΔR² 即非身份质量信息; ICC 高说明区间指标域身份重, 其增量贡献是关键判据"
+  }
+}

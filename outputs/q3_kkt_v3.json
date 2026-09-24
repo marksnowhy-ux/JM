@@ -1,0 +1,22 @@
+{
+  "version": "v3",
+  "created": "2026-09-24",
+  "model": "p8 复刻(θ_Q·(1−Q)·(D/1e11)^−γ + dp·(N/1e6)^δ, C=(6+ηLctx)ND+DΔg)",
+  "summary": {
+    "n_rows": 90,
+    "feasible_rate": 1.0,
+    "budget_use_median": 1.0,
+    "budget_use_min": 0.9999999999999997,
+    "interior_rel_dev_median": 6.484728664212237e-07,
+    "interior_rel_dev_p90": 2.085533894926223e-06,
+    "interior_rel_dev_max": 5.661567162793407e-06,
+    "boundary_dir_ok_rate": 1.0,
+    "perturb_improve_rate_mean": 0.0,
+    "perturb_improve_rate_max": 0.0,
+    "perturb_max_improve_rel": 2.008867484402016e-12
+  },
+  "interpretation": {
+    "equimarginal": "内部最优解三方向单位算力边际 loss 下降基本相等(KKT); 边界解不等式方向正确",
+    "perturbation": "±5% 邻域随机扰动无可行改进 → 局部最优性确认; 结合 L-BFGS-B 多起点即全局稳健"
+  }
+}

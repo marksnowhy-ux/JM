@@ -1,0 +1,136 @@
+{
+  "schema_version": "q1-q2-bridge-v2",
+  "upgrade_note": "v1: 3/17 observed + 14 域中位数插补(sd≈0.08); v2: 6/17 observed(修复 near_direct) + 11 域类型先验推断",
+  "quality_scale": "A1 frozen ECDF; Q_star in (0,1]; 15 indicators",
+  "domain_order": [
+    "arxiv",
+    "freelaw",
+    "nih_exporter",
+    "pubmed_central",
+    "wikipedia_en",
+    "dm_mathematics",
+    "github",
+    "philpapers",
+    "stackexchange",
+    "enron_emails",
+    "gutenberg_pg_19",
+    "pile_cc",
+    "ubuntu_irc",
+    "europarl",
+    "hackernews",
+    "pubmed_abstracts",
+    "uspto_backgrounds"
+  ],
+  "Q_star_17": {
+    "arxiv": 0.732339777758272,
+    "freelaw": 0.5984705120040386,
+    "nih_exporter": 0.4977915942844026,
+    "pubmed_central": 0.650505597817028,
+    "wikipedia_en": 0.4388819929339657,
+    "dm_mathematics": 0.5610942118764402,
+    "github": 0.4057542235658097,
+    "philpapers": 0.656708753323076,
+    "stackexchange": 0.5425377047100388,
+    "enron_emails": 0.5121252785603706,
+    "gutenberg_pg_19": 0.5810777288878799,
+    "pile_cc": 0.56614352291804,
+    "ubuntu_irc": 0.47414596413792426,
+    "europarl": 0.5473420574826969,
+    "hackernews": 0.5555209047244395,
+    "pubmed_abstracts": 0.5675061455664911,
+    "uspto_backgrounds": 0.6363555763465928
+  },
+  "Q_star_status": {
+    "arxiv": "observed",
+    "freelaw": "type_inferred",
+    "nih_exporter": "type_inferred",
+    "pubmed_central": "type_inferred",
+    "wikipedia_en": "observed_near_direct",
+    "dm_mathematics": "type_inferred",
+    "github": "observed",
+    "philpapers": "type_inferred",
+    "stackexchange": "observed",
+    "enron_emails": "type_inferred",
+    "gutenberg_pg_19": "observed_near_direct",
+    "pile_cc": "observed_near_direct",
+    "ubuntu_irc": "type_inferred",
+    "europarl": "type_inferred",
+    "hackernews": "type_inferred",
+    "pubmed_abstracts": "type_inferred",
+    "uspto_backgrounds": "type_inferred"
+  },
+  "Q_star_method": {
+    "arxiv": "direct",
+    "freelaw": "book×0.4+arxiv×0.35+wikipedia×0.25",
+    "nih_exporter": "wikipedia×0.5+commoncrawl×0.3+stackexchange×0.2",
+    "pubmed_central": "arxiv×0.6+book×0.25+wikipedia×0.15",
+    "wikipedia_en": "wikipedia_en->wikipedia",
+    "dm_mathematics": "github×0.35+arxiv×0.35+stackexchange×0.3",
+    "github": "direct",
+    "philpapers": "arxiv×0.5+book×0.5",
+    "stackexchange": "direct",
+    "enron_emails": "commoncrawl×0.45+github×0.3+stackexchange×0.25",
+    "gutenberg_pg_19": "gutenberg_pg_19->book",
+    "pile_cc": "pile_cc->commoncrawl",
+    "ubuntu_irc": "github×0.5+stackexchange×0.5",
+    "europarl": "wikipedia×0.45+book×0.35+arxiv×0.2",
+    "hackernews": "commoncrawl×0.55+stackexchange×0.45",
+    "pubmed_abstracts": "wikipedia×0.4+arxiv×0.35+stackexchange×0.25",
+    "uspto_backgrounds": "arxiv×0.4+commoncrawl×0.35+book×0.25"
+  },
+  "inference_prior": {
+    "pubmed_central": {
+      "arxiv": 0.6,
+      "book": 0.25,
+      "wikipedia": 0.15
+    },
+    "philpapers": {
+      "arxiv": 0.5,
+      "book": 0.5
+    },
+    "pubmed_abstracts": {
+      "wikipedia": 0.4,
+      "arxiv": 0.35,
+      "stackexchange": 0.25
+    },
+    "nih_exporter": {
+      "wikipedia": 0.5,
+      "commoncrawl": 0.3,
+      "stackexchange": 0.2
+    },
+    "freelaw": {
+      "book": 0.4,
+      "arxiv": 0.35,
+      "wikipedia": 0.25
+    },
+    "uspto_backgrounds": {
+      "arxiv": 0.4,
+      "commoncrawl": 0.35,
+      "book": 0.25
+    },
+    "europarl": {
+      "wikipedia": 0.45,
+      "book": 0.35,
+      "arxiv": 0.2
+    },
+    "dm_mathematics": {
+      "github": 0.35,
+      "arxiv": 0.35,
+      "stackexchange": 0.3
+    },
+    "enron_emails": {
+      "commoncrawl": 0.45,
+      "github": 0.3,
+      "stackexchange": 0.25
+    },
+    "hackernews": {
+      "commoncrawl": 0.55,
+      "stackexchange": 0.45
+    },
+    "ubuntu_irc": {
+      "github": 0.5,
+      "stackexchange": 0.5
+    }
+  },
+  "loss_scale_note": "The Pile validation cross entropy only; do not mix directly with Pythia val_loss"
+}

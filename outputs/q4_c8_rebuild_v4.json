@@ -1,0 +1,64 @@
+{
+  "version": "v4",
+  "created": "2026-09-24",
+  "c8_rebuild": {
+    "n_c8": 1860,
+    "n_valid": 1854,
+    "n_common_with_c1": 1891,
+    "pearson": 0.9676976066873205,
+    "spearman": 0.9721799885285455,
+    "mae_raw": 29.06267435357798,
+    "calibration": {
+      "slope": 0.4286022549250713,
+      "intercept": -0.36447855256559236,
+      "mae_calibrated": 1.975785878847886
+    },
+    "monthly_frontier_correlation": 0.9570876068170655
+  },
+  "license_disclosure": {
+    "missing_share": 0.3830856643356643,
+    "other_share": 0.10751748251748251,
+    "undetermined_total": 0.4906031468531468,
+    "top_model_license": "other",
+    "top_model_is_chat": true,
+    "paper_claim": "缺失38%+其他6%=44% 不可判定; 其他含最高分 chat 模型"
+  },
+  "prodfunc_quantile": [
+    {
+      "tau": 0.5,
+      "const": 4.627735276395602,
+      "beta_logN": 14.785946473739788,
+      "beta_t_per_month": 1.1905943741531197,
+      "annualized_t": 14.287132489837436,
+      "pseudo_r2": 0.3326391120424288
+    },
+    {
+      "tau": 0.8,
+      "const": 7.658884099712557,
+      "beta_logN": 16.20914178776052,
+      "beta_t_per_month": 1.546428343383245,
+      "annualized_t": 18.55714012059894,
+      "pseudo_r2": 0.404307611279469
+    },
+    {
+      "tau": 0.9,
+      "const": 11.14189909178498,
+      "beta_logN": 15.87994358105926,
+      "beta_t_per_month": 1.4337931429369404,
+      "annualized_t": 17.205517715243285,
+      "pseudo_r2": 0.3966272482609027
+    },
+    {
+      "tau": 0.95,
+      "const": 16.401787393520735,
+      "beta_logN": 14.771420239044355,
+      "beta_t_per_month": 1.0466611491675757,
+      "annualized_t": 12.55993379001091,
+      "pseudo_r2": 0.37457933325784376
+    }
+  ],
+  "coef_stability": {
+    "beta_logN_rel_range": 0.09328819422165567,
+    "beta_t_rel_range": 0.3831485549756689
+  }
+}

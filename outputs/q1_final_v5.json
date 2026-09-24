@@ -1,0 +1,223 @@
+{
+  "version": "v5",
+  "created": "2026-09-24",
+  "decision": {
+    "main_protocol": "P18",
+    "adopt_bar": -0.78,
+    "rule": "反向13≤−0.78 的最小指标数协议(奥卡姆), 平局取更负; 无候选则取最负并披露",
+    "protocol_ablation": [
+      {
+        "protocol": "P15",
+        "n_indicators": 15,
+        "reverse13": -0.6978021978021978,
+        "domain6": -0.5428571428571429,
+        "loss_slope": -1.3421900454506093,
+        "loss_r2": 0.38289952278794775,
+        "loss_slope_p": 0.1902838275547202,
+        "conflict_rate": 0.007476088229552996
+      },
+      {
+        "protocol": "P16",
+        "n_indicators": 16,
+        "reverse13": -0.7582417582417583,
+        "domain6": -0.8285714285714287,
+        "loss_slope": -1.5635365843966658,
+        "loss_r2": 0.48021412805019775,
+        "loss_slope_p": 0.12692589502365156,
+        "conflict_rate": 0.009506148740972086
+      },
+      {
+        "protocol": "P17",
+        "n_indicators": 17,
+        "reverse13": -0.7362637362637362,
+        "domain6": -0.6571428571428573,
+        "loss_slope": -1.3804097367248542,
+        "loss_r2": 0.3886863686418048,
+        "loss_slope_p": 0.18599195865505475,
+        "conflict_rate": 0.008373999609603748
+      },
+      {
+        "protocol": "P18",
+        "n_indicators": 18,
+        "reverse13": -0.8241758241758241,
+        "domain6": -0.8285714285714287,
+        "loss_slope": -1.6097795116315465,
+        "loss_r2": 0.49025048895099016,
+        "loss_slope_p": 0.12136317677600039,
+        "conflict_rate": 0.00851063829787234
+      }
+    ]
+  },
+  "deidentification": {
+    "rows": [
+      {
+        "protocol": "P17",
+        "quantile": "global(含长度水平/身份)",
+        "reverse13": -0.7362637362637362,
+        "domain6": -0.6571428571428573
+      },
+      {
+        "protocol": "P17shape",
+        "quantile": "within-domain(仅形状)",
+        "reverse13": -0.7252747252747254,
+        "domain6": -0.6571428571428573
+      },
+      {
+        "protocol": "P18",
+        "quantile": "global(含长度水平/身份)",
+        "reverse13": -0.8241758241758241,
+        "domain6": -0.8285714285714287
+      },
+      {
+        "protocol": "P18shape",
+        "quantile": "within-domain(仅形状)",
+        "reverse13": -0.7802197802197801,
+        "domain6": -0.8285714285714287
+      }
+    ],
+    "interpretation": "全局−域内分位的反向差 = 词数/句子数长度水平(域身份)通道贡献; 域内分位版仅保留分布形状信号(重尾惩罚)"
+  },
+  "continuous_criteria": [
+    {
+      "protocol": "P15",
+      "reverse13_boot_ci": [
+        -0.7362637362637362,
+        -0.6428571428571429
+      ],
+      "reverse13_jk_min": -0.8391608391608393,
+      "reverse13_jk_max": -0.6433566433566434,
+      "domain6_boot_ci": [
+        -0.6571428571428573,
+        -0.5428571428571429
+      ]
+    },
+    {
+      "protocol": "P18",
+      "reverse13_boot_ci": [
+        -0.8351648351648352,
+        -0.7802197802197801
+      ],
+      "reverse13_jk_min": -0.9370629370629372,
+      "reverse13_jk_max": -0.7902097902097903,
+      "domain6_boot_ci": [
+        -0.8285714285714287,
+        -0.8285714285714287
+      ]
+    }
+  ],
+  "final_config": {
+    "protocol": "P18",
+    "weighting": "critic",
+    "resolution": "linear",
+    "reverse13": -0.8351648351648352,
+    "domain6_record": -0.8285714285714287,
+    "loss_slope": -1.722244731284499,
+    "loss_r2": 0.4928773844557425
+  },
+  "grid": [
+    {
+      "protocol": "P18",
+      "weighting": "entropy",
+      "resolution": "linear",
+      "reverse13": -0.7802197802197801,
+      "domain6": -0.8285714285714287,
+      "loss_slope": -1.507784380807856,
+      "loss_r2": 0.48691583802436955,
+      "loss_slope_p": 0.12319304094078076,
+      "conflict_rate": 0.008237360921335155
+    },
+    {
+      "protocol": "P18",
+      "weighting": "entropy",
+      "resolution": "huber",
+      "reverse13": -0.7802197802197801,
+      "domain6": -0.8285714285714287,
+      "loss_slope": -1.5074733692564446,
+      "loss_r2": 0.4867737524206723,
+      "loss_slope_p": 0.12327141364196219,
+      "conflict_rate": 0.008237360921335155
+    },
+    {
+      "protocol": "P18",
+      "weighting": "entropy",
+      "resolution": "pow0",
+      "reverse13": -0.7802197802197801,
+      "domain6": -0.8285714285714287,
+      "loss_slope": -1.5096691540674103,
+      "loss_r2": 0.48825134296043643,
+      "loss_slope_p": 0.12245801023777417,
+      "conflict_rate": 0.008237360921335155
+    },
+    {
+      "protocol": "P18",
+      "weighting": "critic",
+      "resolution": "linear",
+      "reverse13": -0.8351648351648352,
+      "domain6": -0.8285714285714287,
+      "loss_slope": -1.722244731284499,
+      "loss_r2": 0.4928773844557425,
+      "loss_slope_p": 0.11993444307652285,
+      "conflict_rate": 0.010443099746242437
+    },
+    {
+      "protocol": "P18",
+      "weighting": "critic",
+      "resolution": "huber",
+      "reverse13": -0.8351648351648352,
+      "domain6": -0.8285714285714287,
+      "loss_slope": -1.722244731284499,
+      "loss_r2": 0.4928773844557425,
+      "loss_slope_p": 0.11993444307652285,
+      "conflict_rate": 0.010443099746242437
+    },
+    {
+      "protocol": "P18",
+      "weighting": "critic",
+      "resolution": "pow0",
+      "reverse13": -0.8351648351648352,
+      "domain6": -0.8285714285714287,
+      "loss_slope": -1.7222628360238352,
+      "loss_r2": 0.49316662331383365,
+      "loss_slope_p": 0.11977781346470649,
+      "conflict_rate": 0.010443099746242437
+    },
+    {
+      "protocol": "P18",
+      "weighting": "combined",
+      "resolution": "linear",
+      "reverse13": -0.8241758241758241,
+      "domain6": -0.8285714285714287,
+      "loss_slope": -1.6099420833947522,
+      "loss_r2": 0.49032218124142024,
+      "loss_slope_p": 0.12132403548898342,
+      "conflict_rate": 0.00851063829787234
+    },
+    {
+      "protocol": "P18",
+      "weighting": "combined",
+      "resolution": "huber",
+      "reverse13": -0.8241758241758241,
+      "domain6": -0.8285714285714287,
+      "loss_slope": -1.6097795116315465,
+      "loss_r2": 0.49025048895099016,
+      "loss_slope_p": 0.12136317677600039,
+      "conflict_rate": 0.00851063829787234
+    },
+    {
+      "protocol": "P18",
+      "weighting": "combined",
+      "resolution": "pow0",
+      "reverse13": -0.8241758241758241,
+      "domain6": -0.8285714285714287,
+      "loss_slope": -1.6112204245989474,
+      "loss_r2": 0.4905570288805526,
+      "loss_slope_p": 0.12119587611784835,
+      "conflict_rate": 0.00851063829787234
+    }
+  ],
+  "stability_a1_vs_full": {
+    "arxiv": 0.00175708631713134,
+    "github": 0.0009003831060230283
+  },
+  "supersedes": "p35 按 6 域饱和判据的配置选择(entropy/linear); v5 判据=13 域反向(判别力见 p41 探针)"
+}

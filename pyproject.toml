@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "math-modeling-f-question"
-version = "1.0.0"
-description = "算力约束下提升大语言模型能力的资源配置建模（数学建模 F 题）"
+version = "6.0.0"
+description = "算力约束下提升大语言模型能力的资源配置建模（数学建模 F 题）— 四问管线、基准套件与单文档报告"
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
@@ -16,7 +16,13 @@ dependencies = [
     "scikit-learn",
     "matplotlib",
     "joblib",
+    "statsmodels",
+    "openpyxl",
+    "python-docx",
 ]
+
+[project.scripts]
+f-model = "f_model.__main__:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
