@@ -44,9 +44,9 @@ def main():
     # ---------- v6 新增 ----------
     ilr = load_json(O / "q1_ilr_best_v6.json")["test1m_macro"]
     check("Q1v6", "ILR 线性基线 test_1m 宏平均", f"{ilr['E1_ilr_linear_ridge']:+.4f}",
-          "参考仓库 0.7641", "≥0.74", ilr["E1_ilr_linear_ridge"] >= 0.74)
+          "基线 0.7641", "≥0.74", ilr["E1_ilr_linear_ridge"] >= 0.74)
     check("Q1v6", "ILR 二次 test_1m 宏平均", f"{ilr['E2_ilr_quad_enet']:+.4f}",
-          "参考仓库逐域选型 0.8896", "≥0.88", ilr["E2_ilr_quad_enet"] >= 0.88)
+          "基线 0.8896", "≥0.88", ilr["E2_ilr_quad_enet"] >= 0.88)
     check("Q1v6", "逐域选型 test_1m 宏平均", f"{ilr['G_domain_selection']:+.4f}",
           f"13/13 正={ilr['n_positive']}", "≥0.85 且 13/13",
           ilr["G_domain_selection"] >= 0.85 and ilr["n_positive"] == 13)
@@ -79,8 +79,8 @@ def main():
 
     check("工程v6", "包化(pyproject+f_model)", "pyproject.toml + src/f_model/{__init__,__main__,report}",
           "—", "存在(记录项)",
-          (MV.parents[0] / "pyproject.toml").exists()
-          and (MV.parents[0] / "src/f_model/report.py").exists())
+          (MV / "pyproject.toml").exists()
+          and (MV / "src/f_model/report.py").exists())
     check("工程v6", "单 docx 报告", "F题_最终报告_v6.docx", "—", "存在",
           (O / "F题_最终报告_v6.docx").exists())
 

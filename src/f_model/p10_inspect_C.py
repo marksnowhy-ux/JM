@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 """p10_inspect_C.py — 问题四 C 系列结构探查：C1/C2/C3/C4/C6 字段 + C8 逐任务 JSON 格式样例。"""
 import json
+from pathlib import Path
 
 import pandas as pd
 
 from qcommon import ROOT
-
 C = ROOT / "C_efficiency_evolution"
 
 FILES = {

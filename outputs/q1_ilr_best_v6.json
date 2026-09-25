@@ -1,6 +1,6 @@
 {
   "version": "v6",
-  "created": "2026-09-24",
+  "created": "2026-09-25",
   "method": {
     "zero_handling": "乘性零值替换 δ=4.99e-04(min非零/2)",
     "ilr": "Helmert 正交基 16 维",

@@ -43,45 +43,15 @@ from sklearn.model_selection import GridSearchCV, KFold
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
-from qcommon import MV, ROOT, setup_logging, timed
+from qcommon import MV, ROOT, SEED, C_GRID, setup_logging, timed
+from qcommon import multiplicative_replacement, helmert_basis, quad_feats, fit_dmlaw
 
 VERSION = "v7"
 A = ROOT / "A_data_value" / "regmix_tables"
 O = MV / "outputs"
-SEED = 20260923
-C_GRID = np.concatenate([np.linspace(0.10, 0.90, 9), np.linspace(0.92, 0.995, 8)])
 RIDGE_ALPHAS = np.logspace(-3, 4, 20)
 ENET_GRID = {"en__alpha": np.logspace(-5, 2, 20), "en__l1_ratio": [0.1, 0.5, 0.9]}
 B_BOOT = 2000
-
-
-def multiplicative_replacement(P, delta=None):
-    X = P.copy()
-    if delta is None:
-        delta = float(P[P > 0].min()) / 2.0
-    zero = X <= 0
-    n_zero = zero.sum(axis=1, keepdims=True)
-    sum_nz = (X * (~zero)).sum(axis=1, keepdims=True)
-    X = np.where(zero, delta, X * (1.0 - n_zero * delta) / np.maximum(sum_nz, 1e-12))
-    return X, delta
-
-
-def helmert_basis(D):
-    V = np.zeros((D, D - 1))
-    for i in range(D - 1):
-        V[:i + 1, i] = 1.0
-        V[i + 1, i] = -(i + 1.0)
-        V[:, i] /= np.sqrt((i + 1.0) * (i + 2.0))
-    return V
-
-
-def quad_feats(Z):
-    k = Z.shape[1]
-    cols = [Z]
-    for i in range(k):
-        for j in range(i, k):
-            cols.append((Z[:, i] * Z[:, j])[:, None])
-    return np.hstack(cols)
 
 
 def _ridge_pipe():
@@ -115,26 +85,6 @@ def nested_cv_r2(X, y, pipe, grid, outer_k=5, inner_k=5):
             gs.fit(X[tr], y[tr])
         scores.append(r2_score(y[te], gs.predict(X[te])))
     return np.array(scores)
-
-
-def fit_dmlaw(P, y, inner_k=4):
-    """dmlaw: L=c+k·exp(t·p); c 内层 4 折剖面选择, log 空间 Ridge。返回 (c, model)。"""
-    best = None
-    qmin, span = y.min(), y.max() - y.min()
-    ikf = KFold(inner_k, shuffle=True, random_state=SEED)
-    for cfrac in C_GRID:
-        c = qmin - cfrac * 0.05 * span - 1e-9
-        if np.any(y - c <= 0):
-            continue
-        z = np.log(y - c)
-        r2s = []
-        for tr, te in ikf.split(P):
-            m = Ridge(alpha=1e-3).fit(P[tr], z[tr])
-            r2s.append(r2_score(y[te], c + np.exp(m.predict(P[te]))))
-        r2m = float(np.mean(r2s))
-        if best is None or r2m > best[0]:
-            best = (r2m, c, Ridge(alpha=1e-3).fit(P, z))
-    return best[1], best[2]
 
 
 def main():

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""python -m f_model — 管线编排入口(双布局可移植: 工作区 modeling_v6/ 或仓库根).
+"""python -m f_model — 管线编排入口(双布局可移植: 工作区 modeling/ 或仓库根).
 
 用法:
   python -m f_model run --stage v6   # 运行 v6 主链 p45→p48
@@ -12,7 +12,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-MV = ROOT / "modeling_v6" if (ROOT / "modeling_v6").exists() else ROOT
+MV = ROOT / "modeling" if (ROOT / "modeling").exists() else ROOT
 S = MV / "scripts" if (MV / "scripts").exists() else ROOT / "src" / "f_model"
 
 STAGES = {

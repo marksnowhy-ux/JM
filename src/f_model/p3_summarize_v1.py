@@ -2,19 +2,17 @@
 """p3_summarize_v1.py — 拟合结果摘要：规模水平核验 + CV 排序 + 关键系数。"""
 import pandas as pd
 
-from qcommon import MV, ROOT
-
-A_TAB = ROOT / "A_data_value" / "regmix_tables"
+from qcommon import ROOT, MV
 
 print("== 各规模 mean_loss 水平（检验 R^2 为负的成因核验）==")
 sets = {
-    "train_1m": "train_pile_loss_1m.csv",
-    "test_1m": "test_pile_loss_1m.csv",
-    "test_60m": "test_pile_loss_60m.csv",
-    "test_1B": "test_pile_loss_1B.csv",
+    "train_1m": ROOT / "A_data_value" / "regmix_tables" / "train_pile_loss_1m.csv",
+    "test_1m": ROOT / "A_data_value" / "regmix_tables" / "test_pile_loss_1m.csv",
+    "test_60m": ROOT / "A_data_value" / "regmix_tables" / "test_pile_loss_60m.csv",
+    "test_1B": ROOT / "A_data_value" / "regmix_tables" / "test_pile_loss_1B.csv",
 }
 for name, p in sets.items():
-    df = pd.read_csv(A_TAB / p)
+    df = pd.read_csv(p)
     m = df.drop(columns="index").mean(axis=1)
     print(f"  {name}: mean_loss 均值={m.mean():.4f} 标准差={m.std():.4f} n={len(df)}")
 

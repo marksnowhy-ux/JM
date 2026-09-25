@@ -9,7 +9,7 @@ p39_figures_v4.py — v4 结果可视化套件 · 论文级图表(10 张, 300dpi
   F6 Q2 质量-规模替代曲线(bootstrap 带) F7 Q3 预算份额三元轨迹
   F8 Q4 开源口径披露(许可证×类型)      F9 Q4 前沿序列+回测+预测
   F10 Q4 C8 重建 vs C1 散点
-输出: modeling_v1/figures/fig_*_v4.png
+输出: modeling/figures/fig_*_v4.png
 """
 import json
 from datetime import date

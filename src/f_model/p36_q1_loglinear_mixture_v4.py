@@ -26,12 +26,11 @@ from sklearn.model_selection import GridSearchCV, KFold
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
-from qcommon import MV, ROOT, setup_logging, timed
+from qcommon import MV, ROOT, SEED, setup_logging, timed
 
 VERSION = "v4"
 CFG = json.loads((MV / "configs" / f"enet_config_v1.json").read_text(encoding="utf-8"))
 A = ROOT / "A_data_value" / "regmix_tables"
-SEED = 20260923
 C_GRID = np.concatenate([np.linspace(0.10, 0.90, 9), np.linspace(0.92, 0.995, 8)])  # c = 分位下限倍数
 
 

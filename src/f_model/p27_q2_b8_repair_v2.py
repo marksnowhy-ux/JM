@@ -21,18 +21,12 @@ from pathlib import Path
 from scipy import stats
 from scipy.optimize import least_squares
 
+from qcommon import metrics
+
 MV = Path(__file__).resolve().parents[1]
 ROOT = MV.parent
 B = ROOT / "B_scaling_laws"
 VERSION = "v2"
-
-
-def metrics(y, yh):
-    return {"n": int(len(y)),
-            "r2": float(1 - np.sum((y - yh) ** 2) / np.sum((y - y.mean()) ** 2)),
-            "rmse": float(np.sqrt(np.mean((y - yh) ** 2))),
-            "bias": float(np.mean(yh - y)),
-            "spearman": float(stats.spearmanr(y, yh).statistic)}
 
 
 def main():

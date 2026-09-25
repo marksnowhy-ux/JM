@@ -6,11 +6,11 @@
 
 ## 一、路径约定与可移植性
 
-所有脚本通过共享工具 `modeling_v6/scripts/qcommon.py` 推导路径，**摆脱硬编码盘符**：
+所有脚本通过共享工具 `modeling/scripts/qcommon.py` 推导路径，**摆脱硬编码盘符**：
 
 ```python
-# qcommon.py 核心（位于 modeling_v6/scripts/ 下）
-REPO = Path(__file__).resolve().parents[2]      # = real_attachments（scripts → modeling_v6 → real_attachments）
+# qcommon.py 核心（位于 modeling/scripts/ 下）
+REPO = Path(__file__).resolve().parents[2]      # = real_attachments（scripts → modeling → real_attachments）
 ROOT = Path(os.environ.get("MODEL_DATA_DIR", REPO / "data" / "raw"))  # 原始数据根（可环境变量覆盖）
 MV   = REPO                                      # 工作目录根（outputs/figures/configs 均在其下）
 ```

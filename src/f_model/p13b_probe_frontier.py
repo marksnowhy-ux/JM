@@ -4,9 +4,8 @@ import pandas as pd
 import numpy as np
 
 from qcommon import ROOT
-
 C = ROOT / "C_efficiency_evolution"
-c1 = pd.read_csv(C / "leaderboard_cleaned.csv")
+c1 = pd.read_csv(C + r"\leaderboard_cleaned.csv")
 c1 = c1[c1["#Params (B)"].notna()].copy()
 OPEN = {"apache-2.0", "mit", "gemma", "llama3", "llama3.1", "llama3.2", "llama2"}
 PRETRAIN = {"🟢 pretrained", "🟩 continuously pretrained"}

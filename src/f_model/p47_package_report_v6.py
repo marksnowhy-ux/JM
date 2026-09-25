@@ -17,7 +17,7 @@ from pathlib import Path
 from qcommon import MV, ROOT, setup_logging
 
 VERSION = "v6"
-# 双布局可移植: 工作区(MV=…/modeling_v6, 含 scripts/) → 包根=MV.parent;
+# 双布局可移植: 工作区(MV=…/modeling, 含 scripts/) → 包根=MV.parent;
 #              仓库(MV=仓库根, 无 scripts/) → 包根=MV
 PKG_ROOT = MV.parent if (MV / "scripts").exists() else MV
 PKG_SRC = PKG_ROOT / "src" / "f_model"
@@ -28,7 +28,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "f-model"
-version = "JM"
+version = "6.0.0"
 description = "算力约束下提升大语言模型能力的资源配置建模(研赛F题) — 分析管线、基准套件与单文档报告"
 requires-python = ">=3.10"
 dependencies = [
@@ -44,11 +44,11 @@ where = ["src"]
 '''
 
 INIT_PY = '''"""f_model — 研赛 F 题建模管线包(入口: python -m f_model {run|bench|report})."""
-__version__ = "JM"
+__version__ = "6.0.0"
 '''
 
 MAIN_PY = '''# -*- coding: utf-8 -*-
-"""python -m f_model — 管线编排入口(双布局可移植: 工作区 modeling_v6/ 或仓库根).
+"""python -m f_model — 管线编排入口(双布局可移植: 工作区 modeling/ 或仓库根).
 
 用法:
   python -m f_model run --stage v6   # 运行 v6 主链 p45→p48
@@ -61,7 +61,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-MV = ROOT / "modeling_v6" if (ROOT / "modeling_v6").exists() else ROOT
+MV = ROOT / "modeling" if (ROOT / "modeling").exists() else ROOT
 S = MV / "scripts" if (MV / "scripts").exists() else ROOT / "src" / "f_model"
 
 STAGES = {
@@ -113,7 +113,7 @@ from docx import Document
 from docx.shared import Inches, Pt
 
 ROOT = Path(__file__).resolve().parents[2]
-MV = ROOT / "modeling_v6" if (ROOT / "modeling_v6").exists() else ROOT
+MV = ROOT / "modeling" if (ROOT / "modeling").exists() else ROOT
 O = MV / "outputs"
 FIG = MV / "figures"
 

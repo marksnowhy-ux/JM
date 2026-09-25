@@ -22,7 +22,7 @@ import pandas as pd
 from scipy import stats
 from scipy.optimize import differential_evolution, least_squares, linprog, minimize
 
-from qcommon import MV, ROOT, setup_logging, timed
+from qcommon import MV, ROOT, setup_logging, timed, law
 
 VERSION = "v7"
 B = ROOT / "B_scaling_laws"
@@ -38,11 +38,6 @@ INITS = [[1.8, 10, 0.4, 10, 0.4], [2.0, 100, 0.34, 100, 0.28],
 LO = [BOUNDS[k][0] for k in ("E", "A", "alpha", "B", "beta")]
 HI = [BOUNDS[k][1] for k in ("E", "A", "alpha", "B", "beta")]
 PNAMES = ["E", "A", "alpha", "B", "beta"]
-
-
-def law(p, N, D):
-    E, A, al, Bc, be = p
-    return E + A * np.power(N, -al) + Bc * np.power(D, -be)
 
 
 def fit_trf(N, D, y):

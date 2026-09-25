@@ -1,6 +1,6 @@
 problem,metric,value,baseline,threshold,verdict
-Q1v6,ILR 线性基线 test_1m 宏平均,+0.7907,参考仓库 0.7641,≥0.74,PASS
-Q1v6,ILR 二次 test_1m 宏平均,+0.8962,参考仓库逐域选型 0.8896,≥0.88,PASS
+Q1v6,ILR 线性基线 test_1m 宏平均,+0.7907,基线 0.7641,≥0.74,PASS
+Q1v6,ILR 二次 test_1m 宏平均,+0.8962,基线 0.8896,≥0.88,PASS
 Q1v6,逐域选型 test_1m 宏平均,+0.8803,13/13 正=13,≥0.85 且 13/13,PASS
 Q1v6,mean_loss 桥接模型保持(B 二次),0.5807,—,≥0.55,PASS
 合规v6,A17/A18 附录状态,已用/已用,原: 未用(辅助)/(可选),均为已用,PASS

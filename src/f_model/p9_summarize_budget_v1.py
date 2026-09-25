@@ -4,11 +4,11 @@ import numpy as np
 import pandas as pd
 
 from qcommon import MV
+O = MV / "outputs"
 
-OUT = MV / "outputs"
-prim = pd.read_csv(OUT / "budget_optimal_primary_v1.csv")
-sens = pd.read_csv(OUT / "budget_optimal_sensitivity_v1.csv")
-scan = pd.read_csv(OUT / "structural_shift_scan_v1.csv")
+prim = pd.read_csv(O / "budget_optimal_primary_v1.csv")
+sens = pd.read_csv(O / "budget_optimal_sensitivity_v1.csv")
+scan = pd.read_csv(O / "structural_shift_scan_v1.csv")
 
 print("== 主网格: 推荐三档预算 × 三类 g (L_ctx=8192, Q0=0.5) ==")
 sub = prim[prim.Lctx == 8192]

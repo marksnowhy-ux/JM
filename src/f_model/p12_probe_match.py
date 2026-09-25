@@ -3,11 +3,10 @@
 import pandas as pd
 
 from qcommon import ROOT
-
 C = ROOT / "C_efficiency_evolution"
-c1 = pd.read_csv(C / "leaderboard_cleaned.csv")
-c2 = pd.read_csv(C / "leaderboard_enhanced.csv")
-c4 = pd.read_csv(C / "epoch_all_ai_models.csv")
+c1 = pd.read_csv(C + r"\leaderboard_cleaned.csv")
+c2 = pd.read_csv(C + r"\leaderboard_enhanced.csv")
+c4 = pd.read_csv(C + r"\epoch_all_ai_models.csv")
 
 print("== C2 Epoch AI 匹配覆盖 ==")
 print(f"C2 行数 {len(c2)}")

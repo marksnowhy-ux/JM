@@ -17,17 +17,12 @@ import pandas as pd
 from scipy import stats
 from scipy.optimize import least_squares
 
-from qcommon import MV, ROOT, setup_logging
+from qcommon import MV, ROOT, setup_logging, law
 
 B = ROOT / "B_scaling_laws"
 CFG = json.loads((MV / "configs" / "scaling_config_v1.json").read_text(encoding="utf-8"))
 VERSION = "v1"
 PNAMES = ["E", "A", "alpha", "B", "beta"]
-
-
-def law(p, N, D):
-    E, A, alpha, Bc, beta = p
-    return E + A * np.power(N, -alpha) + Bc * np.power(D, -beta)
 
 
 def fit_law(N, D, y, log_space=False):
@@ -44,7 +39,7 @@ def fit_law(N, D, y, log_space=False):
         try:
             res = least_squares(resid, np.clip(p0, lo, hi), bounds=(lo, hi),
                                 x_scale="jac", max_nfev=20000)
-        except Exception as e:
+        except ValueError as e:
             logging.getLogger().warning(f"起点 {p0} 拟合失败: {e}")
             continue
         if best is None or res.cost < best.cost:

@@ -22,11 +22,10 @@ from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.linear_model import LinearRegression, Ridge
 from sklearn.metrics import r2_score
 
-from qcommon import MV, ROOT, setup_logging
+from qcommon import MV, ROOT, SEED, setup_logging
 
 VERSION = "v1"
 CFG_PATH = MV / "configs" / "preprocess_config_v1.json"
-SEED = 42
 
 
 def load_table(path):

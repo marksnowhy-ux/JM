@@ -19,7 +19,7 @@ import pandas as pd
 from scipy import stats
 from scipy.optimize import least_squares
 
-from qcommon import MV, ROOT, setup_logging
+from qcommon import MV, ROOT, setup_logging, metrics
 
 B = ROOT / "B_scaling_laws"
 CFG = json.loads((MV / "configs" / "scaling_config_v1.json").read_text(encoding="utf-8"))
@@ -62,7 +62,7 @@ def fit_one(name, N, D, Q, y):
         try:
             r = least_squares(lambda p: pred(p, N, D, Q) - y, np.clip(start, lo, hi),
                               bounds=(lo, hi), x_scale="jac", max_nfev=20000)
-        except Exception:
+        except ValueError:
             continue
         if best is None or r.cost < best.cost:
             best = r
@@ -73,15 +73,6 @@ def predict(name, fit, N, D, Q):
     if name == "M0_no_quality":
         return law0(N, D)
     return MODELS[name][1](fit.x, N, D, Q)
-
-
-def metrics(y, yh):
-    return {"n": len(y),
-            "r2": float(1 - np.sum((y - yh) ** 2) / np.sum((y - y.mean()) ** 2)),
-            "rmse": float(np.sqrt(np.mean((y - yh) ** 2))),
-            "mae": float(np.mean(np.abs(y - yh))),
-            "bias": float(np.mean(yh - y)),
-            "spearman": float(stats.spearmanr(yh, y).statistic)}
 
 
 def main():

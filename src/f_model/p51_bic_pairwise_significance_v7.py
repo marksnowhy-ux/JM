@@ -22,7 +22,7 @@ from scipy import stats
 from scipy.optimize import least_squares
 from sklearn.model_selection import GroupKFold
 
-from qcommon import MV, ROOT, setup_logging, timed
+from qcommon import MV, ROOT, SEED, setup_logging, timed
 
 VERSION = "v7"
 B = ROOT / "B_scaling_laws"
@@ -30,7 +30,6 @@ O = MV / "outputs"
 CLS = json.loads((MV / "outputs" / "scaling_classical_params_v1.json").read_text(encoding="utf-8"))
 P0 = CLS["primary"]["params"]  # E, A, alpha, B, beta(B1 锚定)
 FOLDS = 5
-SEED = 42
 
 
 def law0(N, D):
@@ -60,7 +59,7 @@ def fit_one(name, N, D, Q, y):
         try:
             r = least_squares(lambda p: pred(p, N, D, Q) - y, np.clip(start, lo, hi),
                               bounds=(lo, hi), x_scale="jac", max_nfev=20000)
-        except Exception:
+        except ValueError:
             continue
         if best is None or r.cost < best.cost:
             best = r

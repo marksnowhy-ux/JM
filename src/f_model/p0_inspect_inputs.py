@@ -33,7 +33,7 @@ for name, path in FILES.items():
                 break
             try:
                 rec = json.loads(line)
-            except Exception as e:
+            except (json.JSONDecodeError, ValueError) as e:
                 print(f"  line {i}: JSON 解析失败: {e}")
                 continue
             n_read += 1

@@ -20,7 +20,7 @@ from datetime import date
 import numpy as np
 import pandas as pd
 
-from qcommon import MV, ROOT, setup_logging, timed
+from qcommon import MV, ROOT, SEED, setup_logging, timed
 
 VERSION = "v3"
 CLS = json.loads((MV / "outputs" / "scaling_classical_params_v1.json").read_text(encoding="utf-8"))
@@ -30,7 +30,6 @@ P, QP = CLS["primary"]["params"], QEXT["selected_params"]
 ETA = CFG["eta"]
 GAMMA = float(QP.get("gamma", 0.0))
 N_LO, N_HI = CFG["solver"]["N_bounds"]
-SEED = 42
 N_PERT = 200
 
 G_FUNCS = {

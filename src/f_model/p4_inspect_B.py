@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 """p4_inspect_B.py — 问题二 B 系列附件结构探查：字段、规模、数值范围、跨表一致性。"""
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 
 from qcommon import ROOT
-
 B = ROOT / "B_scaling_laws"
 
 FILES = {

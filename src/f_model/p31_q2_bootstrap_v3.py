@@ -19,7 +19,7 @@ import numpy as np
 import pandas as pd
 from scipy.optimize import least_squares
 
-from qcommon import MV, ROOT, setup_logging, timed
+from qcommon import MV, ROOT, SEED, setup_logging, timed
 
 VERSION = "v3"
 B = ROOT / "B_scaling_laws"
@@ -29,7 +29,6 @@ P0 = CLS["primary"]["params"]                    # E, A, alpha, B, beta (B1 锚�
 QP = QEXT["selected_params"]                     # theta_Q, Q0, gamma (M2 选型)
 N_BOOT_ANCHOR = 500
 N_BOOT_FREE = 200
-SEED = 42
 REP_POINT = {"N": 1.0, "D": 100.0, "Q": 0.7}     # 代表点(统一方案解读点: N=1B, D=100B)
 
 
@@ -45,7 +44,7 @@ def fit_m2_anchored(N, D, Q, y, starts):
             r = least_squares(lambda p: L_m2(N, D, Q, *p) - y, s,
                               bounds=([0.0, 0.05, -2.0], [10.0, 2.0, 2.0]),
                               x_scale="jac", max_nfev=20000)
-        except Exception:
+        except ValueError:
             continue
         if best is None or r.cost < best.cost:
             best = r
@@ -65,7 +64,7 @@ def fit_m2_free(N, D, Q, y, starts):
                               bounds=([0.0, 0.05, -2.0, 0.5, 1e-3, 0.05, 1e-3, 0.05],
                                       [10.0, 2.0, 2.0, 3.5, 1e7, 1.5, 1e7, 1.5]),
                               x_scale="jac", max_nfev=40000)
-        except Exception:
+        except ValueError:
             continue
         if best is None or r.cost < best.cost:
             best = r

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """探查 C8 JSON 的 results group 键与 groups/group_subtasks 定义, 确定 MATH/MMLU-PRO 的组名与归一化。"""
 import json
+from pathlib import Path
 
 from qcommon import ROOT
-
 C = ROOT / "C_efficiency_evolution"
 det = C / "detailed_results"
 dirs = sorted(d for d in det.iterdir() if d.is_dir())
@@ -17,7 +17,7 @@ for d in dirs:
         try:
             obj = json.loads(f.read_text(encoding="utf-8", errors="strict"))
             break
-        except Exception:
+        except (json.JSONDecodeError, ValueError):
             continue
     if obj is None:
         continue

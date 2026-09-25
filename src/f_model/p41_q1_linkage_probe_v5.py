@@ -31,7 +31,7 @@ from sklearn.model_selection import GridSearchCV, KFold
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
-from qcommon import MV, ROOT, setup_logging, timed
+from qcommon import MV, ROOT, SEED, setup_logging, timed
 
 VERSION = "v5"
 SOFTMAX_CSV = MV / "data" / "intermediate" / "quality_docs_softmax_v1.csv.gz"
@@ -60,7 +60,6 @@ LINKAGE_MAP = {"arxiv": "arxiv", "github": "github", "stackexchange": "stackexch
                "wikipedia": "wikipedia_en", "book": "gutenberg_pg_19",
                "commoncrawl": "pile_cc"}
 QSTAR_MAP = LINKAGE_MAP
-SEED = 20260923
 
 
 def empirical_cdf(x, ref):

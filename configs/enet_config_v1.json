@@ -6,7 +6,7 @@
   "inputs": {
     "train_mixture": "A_data_value/regmix_tables/train_mixture_1m.csv",
     "train_loss": "A_data_value/regmix_tables/train_pile_loss_1m.csv",
-    "quality_domain_scores": "modeling_v1/outputs/quality_domain_scores_v1.csv",
+    "quality_domain_scores": "modeling/outputs/quality_domain_scores_v1.csv",
     "domain_mapping": "A_data_value/domain_mapping_guide.csv",
     "test_sets": {
       "test_1m": ["A_data_value/regmix_tables/test_mixture_1m.csv", "A_data_value/regmix_tables/test_pile_loss_1m.csv"],
