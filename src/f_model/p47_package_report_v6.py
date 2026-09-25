@@ -28,7 +28,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "f-model"
-version = "6.0.0"
+version = "JM"
 description = "算力约束下提升大语言模型能力的资源配置建模(研赛F题) — 分析管线、基准套件与单文档报告"
 requires-python = ">=3.10"
 dependencies = [
@@ -44,7 +44,7 @@ where = ["src"]
 '''
 
 INIT_PY = '''"""f_model — 研赛 F 题建模管线包(入口: python -m f_model {run|bench|report})."""
-__version__ = "6.0.0"
+__version__ = "JM"
 '''
 
 MAIN_PY = '''# -*- coding: utf-8 -*-
