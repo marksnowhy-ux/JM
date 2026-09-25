@@ -1,0 +1,15 @@
+{
+  "created": "2026-09-25",
+  "figures": [
+    "F1_q1_ecdf",
+    "F2_q1_corr",
+    "F3_q1_weights",
+    "F4_q1_conflict",
+    "F5_q2_isoloss",
+    "F6_q2_substitution",
+    "F7_q3_shares",
+    "F8_q4_license",
+    "F9_q4_backtest",
+    "F10_q4_c8"
+  ]
+}
