@@ -1,0 +1,5 @@
+scenario,delta_p_at_1M,L_1M_actual,top_domains,used_in_analysis
+empirical_best(primary),-0.5335057505334797,4.748776215773362,pubmed_abstracts:0.349;ubuntu_irc:0.132;stackexchange:0.127;arxiv:0.096;freelaw:0.084,primary_grid
+enet_trust_region,-0.9810563926232545,,pubmed_abstracts:0.299;stackexchange:0.177;ubuntu_irc:0.087;europarl:0.075;nih_exporter:0.050,sensitivity
+mean_zero,0.0,5.282281966306842,test_mean_recipe,sensitivity
+enet_unrestricted(artifact),-8.503923654250233,,hackernews:0.500;philpapers:0.500;pubmed_abstracts:0.000;uspto_backgrounds:0.000;ubuntu_irc:0.000,record_only
