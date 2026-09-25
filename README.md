@@ -11,18 +11,23 @@
 
 ```
 math-modeling-f-question/
-├── src/f_model/            # 全部流水线脚本(按 p 序号编排)
-│   ├── qcommon.py          # 路径推导(REPO/ROOT/MV)与日志
-│   ├── p0_*.py ... p25_*.py
+├── src/f_model/              # 全部流水线脚本(按 p 序号编排)
+│   ├── qcommon.py            # 路径推导(REPO/ROOT/MV)与日志
+│   ├── p0_*.py ... p54_*.py  # 主链脚本(问题一~四 + 验证 + 交付)
+│   ├── __main__.py           # 包入口(python -m f_model {run|bench|report})
+│   ├── report.py             # 单文档报告构建器
 │   └── __init__.py
-├── data/README.md          # 原始数据放置说明(数据不入库)
-├── outputs/                # 四问全部最终结果(CSV/JSON/joblib/xlsx)
-├── figures/                # 分析图(PNG)
-├── configs/                # 各环节参数配置(JSON)
-├── reference/              # 题目与数据说明提取文本(只读参考)
-├── reports/                # 四问独立解答报告 + 隔离审计注册表
-├── pyproject.toml
-├── README.md
+├── data/                     # 原始数据放置说明(数据不入库, 见 data/README.md)
+├── outputs/                  # 四问全部结果(CSV/JSON/joblib/xlsx/docx)
+├── figures/                  # 10 张论文级图表(PNG)
+├── configs/                  # 各环节参数配置(JSON)
+├── reference/                # 题目与数据说明提取文本(只读参考)
+├── reports/                  # 四问独立解答报告 + 隔离审计注册表
+├── pyproject.toml            # 包元数据 + 依赖 + 入口 f-model
+├── requirements.txt          # 依赖清单(pip install -r requirements.txt)
+├── README.md                 # 本文件(项目总览)
+├── PROJECT_STRUCTURE.md      # 结构说明 + 依赖关系图 + 数据流图
+├── SCRIPTS.md                # 58 脚本按功能模块分类清单
 └── LICENSE
 ```
 
@@ -33,7 +38,7 @@ math-modeling-f-question/
 $env:MODEL_DATA_DIR = "C:\path\to\real_attachments"   # 指向含 A_data_value/B_scaling_laws/C_efficiency_evolution 的目录
 
 # 2) 安装依赖
-pip install numpy pandas scipy scikit-learn matplotlib joblib
+pip install -r requirements.txt
 
 # 3) 按问题顺序运行脚本(直接以脚本方式运行, 输出写入 outputs/、figures/)
 python src/f_model/p1_preprocess_quality_v1.py
