@@ -1,0 +1,31 @@
+{
+  "version": "v7",
+  "created": "2026-09-25",
+  "backtest_bootstrap": {
+    "plateau": {
+      "rmse_point": 0.9756310796839331,
+      "rmse_ci95": [
+        0.29512524395790984,
+        1.4267555285831004
+      ],
+      "n_test_points": 4
+    },
+    "trend": {
+      "rmse_point": 2.3655945899935937,
+      "rmse_ci95": [
+        1.585491044961339,
+        3.0287943199311673
+      ],
+      "n_test_points": 4
+    },
+    "quantile": {
+      "rmse_point": 4.402921147261709,
+      "rmse_ci95": [
+        2.608140723880517,
+        5.856062013973968
+      ],
+      "n_test_points": 4
+    }
+  },
+  "note": "对 q4_backtest_v3.csv 三腿 1 步回测误差做 bootstrap(2000) 估计 RMSE 分布; n=4 测试点, CI 宽幅即估计不确定性的诚实量化"
+}

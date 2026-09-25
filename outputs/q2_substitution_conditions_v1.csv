@@ -1,7 +1,0 @@
-N_B,D_B,dQ,dN_equiv_B,dN_equiv_pct,type,detail
-0.19,100.0,0.1,0.03255509307895862,17.134259515241375,,
-1.0,100.0,0.1,0.30135071475584313,30.13507147558431,,
-10.0,100.0,0.1,6.592479800417039,65.9247980041704,,
-100.0,100.0,0.1,144.21996627457474,144.21996627457474,,
-,,,,,interaction_top5_complementary,freelaw×stackexchange:-0.028; pubmed_central×stackexchange:-0.026; pubmed_central×gutenberg_pg_19:-0.025; pubmed_central×github:-0.024; arxiv×github:-0.024
-,,,,,interaction_top5_substitutable,pubmed_central×pubmed_abstracts:+0.030; gutenberg_pg_19×pile_cc:+0.010; gutenberg_pg_19×uspto_backgrounds:+0.009; github×stackexchange:+0.007; pile_cc×pubmed_abstracts:+0.006

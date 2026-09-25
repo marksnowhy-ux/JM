@@ -8,7 +8,7 @@ from docx import Document
 from docx.shared import Inches, Pt
 
 ROOT = Path(__file__).resolve().parents[2]
-MV = ROOT / "modeling_v1" if (ROOT / "modeling_v1").exists() else ROOT
+MV = ROOT / "modeling_v6" if (ROOT / "modeling_v6").exists() else ROOT
 O = MV / "outputs"
 FIG = MV / "figures"
 

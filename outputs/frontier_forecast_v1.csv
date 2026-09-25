@@ -1,5 +1,0 @@
-horizon_months,scenario,point_forecast,ci5,ci95,ci_method,note
-12,plateau_continue,46.66132247862437,39.955112739485365,78.7101758997469,moving_block_bootstrap(block=3),平台延续主案
-12,slowdown_scale,47.60102196201067,40.894812222871664,79.6498753831332,moving_block_bootstrap(block=3),算力放缓+规模弹性(能力增量量级估算)
-24,plateau_continue,46.66132247862437,43.66704221770485,97.820709179225,moving_block_bootstrap(block=3),平台延续主案
-24,slowdown_scale,48.54072144539696,45.54644118447744,99.70010814599759,moving_block_bootstrap(block=3),算力放缓+规模弹性(能力增量量级估算)

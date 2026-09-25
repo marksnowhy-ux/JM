@@ -17,7 +17,7 @@ from pathlib import Path
 from qcommon import MV, ROOT, setup_logging
 
 VERSION = "v6"
-# 双布局可移植: 工作区(MV=…/modeling_v1, 含 scripts/) → 包根=MV.parent;
+# 双布局可移植: 工作区(MV=…/modeling_v6, 含 scripts/) → 包根=MV.parent;
 #              仓库(MV=仓库根, 无 scripts/) → 包根=MV
 PKG_ROOT = MV.parent if (MV / "scripts").exists() else MV
 PKG_SRC = PKG_ROOT / "src" / "f_model"
@@ -48,7 +48,7 @@ __version__ = "6.0.0"
 '''
 
 MAIN_PY = '''# -*- coding: utf-8 -*-
-"""python -m f_model — 管线编排入口(双布局可移植: 工作区 modeling_v1/ 或仓库根).
+"""python -m f_model — 管线编排入口(双布局可移植: 工作区 modeling_v6/ 或仓库根).
 
 用法:
   python -m f_model run --stage v6   # 运行 v6 主链 p45→p48
@@ -61,7 +61,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-MV = ROOT / "modeling_v1" if (ROOT / "modeling_v1").exists() else ROOT
+MV = ROOT / "modeling_v6" if (ROOT / "modeling_v6").exists() else ROOT
 S = MV / "scripts" if (MV / "scripts").exists() else ROOT / "src" / "f_model"
 
 STAGES = {
@@ -113,7 +113,7 @@ from docx import Document
 from docx.shared import Inches, Pt
 
 ROOT = Path(__file__).resolve().parents[2]
-MV = ROOT / "modeling_v1" if (ROOT / "modeling_v1").exists() else ROOT
+MV = ROOT / "modeling_v6" if (ROOT / "modeling_v6").exists() else ROOT
 O = MV / "outputs"
 FIG = MV / "figures"
 

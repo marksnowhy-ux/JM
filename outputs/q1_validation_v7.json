@@ -1,0 +1,118 @@
+{
+  "version": "v7",
+  "created": "2026-09-25",
+  "nested_cv": {
+    "E1_ilr_linear_ridge": {
+      "flat_best_score_r2": 0.25027349983091063,
+      "nested_r2_mean": 0.24033604349163515,
+      "nested_r2_std": 0.06629767988083711,
+      "selection_bias_gap": 0.00993745633927548
+    },
+    "E2_ilr_quad_enet": {
+      "flat_best_score_r2": 0.4787122636959332,
+      "nested_r2_mean": 0.46539190867031593,
+      "nested_r2_std": 0.10177288237068809,
+      "selection_bias_gap": 0.013320355025617292
+    }
+  },
+  "permutation_importance_top5": [
+    {
+      "domain": "train_the_pile_ubuntu_irc",
+      "importance_r2_drop_mean": 0.13092134928685992,
+      "importance_r2_drop_std": 0.020627180245354954
+    },
+    {
+      "domain": "train_the_pile_dm_mathematics",
+      "importance_r2_drop_mean": 0.07629768241325965,
+      "importance_r2_drop_std": 0.012952059641290432
+    },
+    {
+      "domain": "train_the_pile_philpapers",
+      "importance_r2_drop_mean": 0.045339264452437626,
+      "importance_r2_drop_std": 0.009643469329433585
+    },
+    {
+      "domain": "train_the_pile_hackernews",
+      "importance_r2_drop_mean": 0.0398781013506734,
+      "importance_r2_drop_std": 0.008369408302813394
+    },
+    {
+      "domain": "train_the_pile_freelaw",
+      "importance_r2_drop_mean": 0.03161246455686372,
+      "importance_r2_drop_std": 0.009578807655853474
+    }
+  ],
+  "dmlaw_mean_loss": {
+    "c": 4.653701235575842,
+    "elasticity": [
+      {
+        "domain": "train_the_pile_enron_emails",
+        "elasticity_t_recentered": -5.368445221877153
+      },
+      {
+        "domain": "train_the_pile_philpapers",
+        "elasticity_t_recentered": -4.869298180282333
+      },
+      {
+        "domain": "train_the_pile_ubuntu_irc",
+        "elasticity_t_recentered": -2.183296022959545
+      },
+      {
+        "domain": "train_the_pile_nih_exporter",
+        "elasticity_t_recentered": -1.9505955940087494
+      },
+      {
+        "domain": "train_the_pile_hackernews",
+        "elasticity_t_recentered": -1.5811598204525008
+      },
+      {
+        "domain": "train_the_pile_dm_mathematics",
+        "elasticity_t_recentered": -0.3766856862592622
+      },
+      {
+        "domain": "train_the_pile_europarl",
+        "elasticity_t_recentered": 0.0900631741121762
+      },
+      {
+        "domain": "train_the_pile_gutenberg_pg_19",
+        "elasticity_t_recentered": 1.1676311989827088
+      },
+      {
+        "domain": "train_the_pile_pubmed_abstracts",
+        "elasticity_t_recentered": 1.373116101103907
+      },
+      {
+        "domain": "train_the_pile_stackexchange",
+        "elasticity_t_recentered": 1.3958173338823276
+      },
+      {
+        "domain": "train_the_pile_wikipedia_en",
+        "elasticity_t_recentered": 1.5802258284950224
+      },
+      {
+        "domain": "train_the_pile_uspto_backgrounds",
+        "elasticity_t_recentered": 1.6286616591454184
+      },
+      {
+        "domain": "train_the_pile_pile_cc",
+        "elasticity_t_recentered": 1.6932381240893262
+      },
+      {
+        "domain": "train_the_pile_pubmed_central",
+        "elasticity_t_recentered": 1.700011266998455
+      },
+      {
+        "domain": "train_the_pile_arxiv",
+        "elasticity_t_recentered": 1.8552400577127137
+      },
+      {
+        "domain": "train_the_pile_freelaw",
+        "elasticity_t_recentered": 1.9120123720715045
+      },
+      {
+        "domain": "train_the_pile_github",
+        "elasticity_t_recentered": 1.9334634092459828
+      }
+    ]
+  }
+}
