@@ -1,0 +1,10 @@
+section,param,max_rel_dev
+scaling_law,E,2.3415676484856858e-07
+scaling_law,A,4.4296192275117325e-07
+scaling_law,alpha,3.3114882601709993e-07
+scaling_law,B,5.34716472938339e-07
+scaling_law,beta,8.252261358388691e-07
+recipe_ridge,all_coef,4.0673579246723345e-13
+frontier_qr,const,1.1861160367688805e-06
+frontier_qr,b_logN,5.2675847534092e-07
+frontier_qr,b_t,1.8465549498911335e-06

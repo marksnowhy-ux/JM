@@ -1,0 +1,61 @@
+{
+  "version": "v7",
+  "created": "2026-09-25",
+  "optimal_N_exponent": 0.4515221451603899,
+  "theory_exponent": 0.45152214516039,
+  "closure": {
+    "n_points": 57,
+    "pearson": 0.9205569128771552,
+    "spearman": 0.9258517477991787,
+    "median_dev_dex": 0.23121257148173607,
+    "frac_within_half_dex": 0.8245614035087719,
+    "median_dev_chinchilla_dex": 0.5149816116887216
+  },
+  "family_breakdown": [
+    {
+      "family": "BLOOM",
+      "n": 4,
+      "median_dev_dex": 0.21243820118580378
+    },
+    {
+      "family": "Cerebras-GPT",
+      "n": 7,
+      "median_dev_dex": 0.6906132286747204
+    },
+    {
+      "family": "GPT2",
+      "n": 4,
+      "median_dev_dex": 0.13730694276884003
+    },
+    {
+      "family": "Gemma",
+      "n": 3,
+      "median_dev_dex": 0.4566171687470318
+    },
+    {
+      "family": "LLaMA",
+      "n": 6,
+      "median_dev_dex": 0.14496585092700276
+    },
+    {
+      "family": "OPT",
+      "n": 7,
+      "median_dev_dex": 0.13966005726606767
+    },
+    {
+      "family": "Phi",
+      "n": 6,
+      "median_dev_dex": 0.3317561363297131
+    },
+    {
+      "family": "Pythia",
+      "n": 8,
+      "median_dev_dex": 0.15614214847217267
+    },
+    {
+      "family": "Qwen2",
+      "n": 7,
+      "median_dev_dex": 0.3053016504571492
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "version": "v7",
+  "created": "2026-09-25",
+  "shrinkage_exponent_kappa": 0.1444501704372015,
+  "fit_r2": 0.9067091425966246,
+  "log_norm_intercept": 5.171084628968032,
+  "scales": [
+    {
+      "scale_tag": "1m",
+      "scale_tokens": 1000000.0,
+      "n_recipes": 256,
+      "n_loss_domains": 13,
+      "coef_frobenius_norm": 22.201718861287308
+    },
+    {
+      "scale_tag": "60m",
+      "scale_tokens": 60000000.0,
+      "n_recipes": 256,
+      "n_loss_domains": 13,
+      "coef_frobenius_norm": 15.939393489389559
+    },
+    {
+      "scale_tag": "1B",
+      "scale_tokens": 1000000000.0,
+      "n_recipes": 64,
+      "n_loss_domains": 13,
+      "coef_frobenius_norm": 7.909596667254853
+    }
+  ],
+  "note": "配比效应强度(系数 Frobenius 范数)随训练规模幂律衰减; κ 越大收缩越快"
+}

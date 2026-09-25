@@ -1,0 +1,84 @@
+{
+  "version": "v7",
+  "created": "2026-09-25",
+  "bic": [
+    {
+      "model": "M0_no_quality",
+      "n_free_params": 0,
+      "r2": 0.6036411309259746,
+      "bic": -1099.2712936290623,
+      "cv_rmse_mean": 0.21681804378074815,
+      "delta_bic": 747.2410604945351
+    },
+    {
+      "model": "M1_offset",
+      "n_free_params": 2,
+      "r2": 0.9513995427732564,
+      "bic": -1843.0264405174694,
+      "cv_rmse_mean": 0.07638019353427676,
+      "delta_bic": 3.4859136061279514
+    },
+    {
+      "model": "M2_D_interact",
+      "n_free_params": 3,
+      "r2": 0.9526484498842499,
+      "bic": -1846.5123541235973,
+      "cv_rmse_mean": 0.07508982136458764,
+      "delta_bic": 0.0
+    },
+    {
+      "model": "M4_effective_tokens",
+      "n_free_params": 2,
+      "r2": 0.8994764627392996,
+      "bic": -1581.3932138888247,
+      "cv_rmse_mean": 0.12594683962718783,
+      "delta_bic": 265.11914023477266
+    }
+  ],
+  "best_model": "M2_D_interact",
+  "decisive_delta_bic": 3.4859136061279514,
+  "pairwise_significance": [
+    {
+      "pair": "M0_no_quality_vs_M1_offset",
+      "rmse_diff_mean": 0.1404378502464714,
+      "wilcoxon_p": 0.0625,
+      "paired_t_p": 2.749200302982768e-06,
+      "significant_005": false
+    },
+    {
+      "pair": "M0_no_quality_vs_M2_D_interact",
+      "rmse_diff_mean": 0.1417282224161605,
+      "wilcoxon_p": 0.0625,
+      "paired_t_p": 4.158449657394283e-06,
+      "significant_005": false
+    },
+    {
+      "pair": "M0_no_quality_vs_M4_effective_tokens",
+      "rmse_diff_mean": 0.09087120415356029,
+      "wilcoxon_p": 0.0625,
+      "paired_t_p": 0.004842992041202828,
+      "significant_005": false
+    },
+    {
+      "pair": "M1_offset_vs_M2_D_interact",
+      "rmse_diff_mean": 0.001290372169689119,
+      "wilcoxon_p": 0.1875,
+      "paired_t_p": 0.1763913346716663,
+      "significant_005": false
+    },
+    {
+      "pair": "M1_offset_vs_M4_effective_tokens",
+      "rmse_diff_mean": -0.0495666460929111,
+      "wilcoxon_p": 0.0625,
+      "paired_t_p": 0.05009141532900126,
+      "significant_005": false
+    },
+    {
+      "pair": "M2_D_interact_vs_M4_effective_tokens",
+      "rmse_diff_mean": -0.05085701826260023,
+      "wilcoxon_p": 0.0625,
+      "paired_t_p": 0.052483751330324464,
+      "significant_005": false
+    }
+  ]
+}
