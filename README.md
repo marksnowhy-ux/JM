@@ -74,13 +74,13 @@ python src/f_model/p1_preprocess_quality_v1.py
 ## 更新记录
 
 ### v6（2026-09-24）
-- 新增 `src/f_model/p26–p48`（23 个脚本）：v2 优化（Q_star 结构化推断、B8 机制修复、分解与断点）、v3 方法学升级（组级 CRITIC+Huber、bootstrap、KKT 验证、分位回归+回测、基准套件）、v4 论文级优化（组合赋权、区间型指标、四类代理模型、损失地形+计算最优前沿、C8 重建、10 张论文级图表）、v5 残余限制改进（协议拆分、去身份化 65/35、13 域反向主判据）、v6 对外部参考仓库的吸收（ILR+逐域选型 test_1m 宏平均 0.896、A17/A18 文本抽查、抽样代表性 KS、分类器域偏移、λ 敏感性）。
+- 新增 `src/f_model/p26–p48`（23 个脚本）：v2 优化（Q_star 结构化推断、B8 机制修复、分解与断点）、v3 方法学升级（组级 CRITIC+Huber、bootstrap、KKT 验证、分位回归+回测、基准套件）、v4 论文级优化（组合赋权、区间型指标、四类代理模型、损失地形+计算最优前沿、C8 重建、10 张论文级图表）、v5 残余限制改进（协议拆分、去身份化 65/35、13 域反向主判据）、v6 成分处理与逐域选型（ILR+逐域选型 test_1m 宏平均 0.896、A17/A18 文本抽查、抽样代表性 KS、分类器域偏移、λ 敏感性）。
 - 包化：`pyproject.toml`（版本 JM）+ `[project.scripts] f-model`；入口 `python -m f_model {run --stage v6|bench|report}`。
 - 新增结果 75 个（`outputs/*_v2..v6*`、四代基准 `benchmark_v3..v6`、`F题_最终报告_v6.docx`、`论文定稿素材包_v1.0.md`、`附录_数据利用与AI披露_v2.xlsx`）与图表 `figures/fig_*_v4.png`（10 张）。
 - 关键指标：Q1 主判据 13 域反向 ρ=−0.835（CI [−0.835,−0.780]）；Q2 θ_Q=0.363 [0.338,0.390]；Q3 KKT 等边际 0.00%；Q4 12mo 前沿 49.34 [48.09,50.59]；基准 v3/v4/v5/v6 = 24/20/19/17 全 PASS。
 
 ### v7（2026-09-25）
-- 对标外部方案（Akun-python/llm-compute-allocation-modeling）落地 5 项验证强化：`p50` 多框架交叉验证（标度律/配比/分位回归跨框架偏差 ≤1e-6）、`p51` BIC+配对显著性（质量项 p<1e-5，D 交互项非决定性）、`p52` 论文断言审计（10/10 PASS）、`p53` 跨尺度配比收缩律（κ=0.145）、`p54` 闭环外部验证（Pearson 0.921 优于 Chinchilla 规则）。
+- 5 项验证强化：`p50` 多框架交叉验证（标度律/配比/分位回归跨框架偏差 ≤1e-6）、`p51` BIC+配对显著性（质量项 p<1e-5，D 交互项非决定性）、`p52` 论文断言审计（10/10 PASS）、`p53` 跨尺度配比收缩律（κ=0.145）、`p54` 闭环外部验证（Pearson 0.921 优于 Chinchilla 规则）。
 - 文件梳理：新增 [requirements.txt](requirements.txt)、[PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)（依赖关系图 + 数据流图 + 路径约定）、[SCRIPTS.md](SCRIPTS.md)（58 脚本按功能模块分类）。
 - 恢复清理误删的全链路中间文件（p1/p2/p7/p8/p11/p13/p23/p30/p31/p35/p37/p38），`p39` 完整 10 图，`p48` 复检 17/17 PASS。
 
