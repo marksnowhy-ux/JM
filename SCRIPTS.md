@@ -1,6 +1,6 @@
 # 脚本分类清单
 
-`modeling/scripts/` 下共 **58 个脚本**（主链 `p0`–`p54` 55 个 + 探查 `p11b`/`p13b` 2 个 + 共享工具 `qcommon.py` 1 个）。按功能模块分类如下。
+`modeling/scripts/` 下共 **64 个脚本**（主链 `p0`–`p60` 61 个 + 探查 `p11b`/`p13b` 2 个 + 共享工具 `qcommon.py` 1 个）。按功能模块分类如下。
 
 命名约定：`p{序号}_{问题}_{主题}_v{版本}.py`；`probe`/`inspect` 后缀为只读探查（仅打印诊断，不写结果）；版本号 `v1→v7` 表示演进代际。
 
@@ -59,6 +59,7 @@
 | `p27_q2_b8_repair_v2.py` | v2 | B8 大规模外推失效修复（乘性 E 机制 M5_multE，R² 0.947） |
 | `p31_q2_bootstrap_v3.py` | v3 | bootstrap 参数稳定性 + 退化一致性 + 弹性/等效替代区间 |
 | `p37_q2_frontier_landscape_v4.py` | v4 | 等损失地形 + 计算最优前沿 + 质量-规模替代曲线 + H2 检验 |
+| `p55_q2_enhance_v9.py` | v9 | 广义标度律增强（intND_add/twoQ 双通道形式 + ens3 三形式集成；B6+B7 参考协议 0.9781 超 ref intN 0.9777 p=0.0001；B8 twoQ R²=0.98773 超 ref intD 0.98423） |
 
 ---
 
@@ -100,6 +101,11 @@
 | `p51_bic_pairwise_significance_v7.py` | v7 | BIC + 留出 CV 配对显著性检验 |
 | `p52_claims_audit_v7.py` | v7 | 论文断言审计（10/10 PASS） |
 | `p53_recipe_shrinkage_v7.py` | v7 | 跨尺度配比收缩律（κ=0.145） |
+| `p56_unified_comparison_v9.py` | v9 | 统一对比实验框架（同数据同标准三方：Q1 配比五尺度 / Q1 质量 6 域链接 / Q4 月度+年度回测） |
+| `p57_figures_report_v9.py` | v9 | v9 优化对比图表（5 张）+ 优化报告生成（outputs/优化技术报告_v9.md） |
+| `p58_q2_q3_align_v9.py` | v9 | 摘要对标·Q2/Q3：BIC 表（B8 twoQ ΔBIC=198）、同基准点弹性+175 点稳健 100%、等价参数、联合收益（校准逐位复现参考 9 档）、对数线性律、闭环轨迹族 |
+| `p59_q4_p1_align_v9.py` | v9 | 摘要对标·Q4/P1：C8 权重优化重建（CV Spearman 0.9935）、规模贡献 bootstrap CI（88.1%）、家族 LOO、P18 链 KW（H=64,465）+5% 抽样首位域 100% + 配比处方三口径（校准逐位复现） |
+| `p60_abstract_scorecard_v9.py` | v9 | 摘要逐项对标总表（27 项：优 18/平 3/口径差异 6 → outputs/摘要对标_v9.md） |
 
 ---
 

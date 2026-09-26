@@ -1,0 +1,153 @@
+{
+  "version": "v9",
+  "created": "2026-09-26",
+  "q4": {
+    "c8_rebuild": {
+      "n_common": 1891,
+      "ecdf_eq_spearman": 0.972204231237206,
+      "raw_mean_spearman": 0.991255557012267,
+      "raw_mean_pearson": 0.9880245428844713,
+      "weight_opt_cv_spearman": 0.9935174818801678,
+      "weight_opt_folds": [
+        0.993174448875046,
+        0.9928587921618864,
+        0.993840390956026,
+        0.9934351323207812,
+        0.9942786450870988
+      ],
+      "weight_opt_fullfit_spearman": 0.9937700545028937,
+      "weight_opt_pearson": 0.9913158632485304,
+      "weights_fullfit": [
+        0.1459886598452761,
+        0.19484760580977967,
+        0.10048656489751419,
+        0.17183081228766706,
+        0.15607356649156706,
+        0.2307727906681959
+      ],
+      "ref_claim": 0.989
+    },
+    "scale_contribution": {
+      "ref_spec_reproduction": 0.8365693226410835,
+      "ours_v2_formula": {
+        "share": 0.8807866984390895,
+        "ci90": [
+          0.828471490645525,
+          0.935633786516058
+        ],
+        "n": 229
+      },
+      "ref": {
+        "share": 0.837,
+        "ci": [
+          0.81,
+          0.87
+        ]
+      }
+    },
+    "family_loo": {
+      "families": {
+        "gemma": 15.884669348269446,
+        "llama": 16.862120068086135,
+        "mistral": 15.917313822750435,
+        "other": 15.362562136949586,
+        "phi": 15.930536901007653,
+        "qwen": 14.478831681888717,
+        "smollm": 16.080148606402787,
+        "yi": 15.889461685827932
+      },
+      "b_logN_full": 15.87994358105926,
+      "rel_range": 0.15083430176339574,
+      "ref_spec_reproduction": {
+        "families": {
+          "gemma": 0.35550764954869113,
+          "gpt": 0.3591415661118434,
+          "llama": 0.3742995592843401,
+          "mistral": 0.36633807412198854,
+          "other": 0.38658323086742263,
+          "phi": 0.36989936636257026,
+          "qwen": 0.3356286822603754,
+          "smollm": 0.3524051240115562,
+          "yi": 0.36549369380487445
+        },
+        "rel_range": 0.14044386926975264
+      },
+      "big_family_variant": {
+        "ours_rel_range": 0.15179117867620975,
+        "ours_families": {
+          "gemma": 15.884669348269446,
+          "llama": 16.862120068086135,
+          "mistral": 15.917313822750435,
+          "other": 15.362562136949586,
+          "qwen": 14.478831681888717
+        },
+        "ref_spec_rel_range": 0.1401114938165496,
+        "ref_spec_families": {
+          "gemma": 0.35550764954869113,
+          "llama": 0.3742995592843401,
+          "mistral": 0.36633807412198854,
+          "other": 0.38658323086742263,
+          "qwen": 0.3356286822603754
+        }
+      },
+      "ref": {
+        "bN_range": [
+          0.353,
+          0.384
+        ],
+        "rel_range": 0.084
+      }
+    }
+  },
+  "p1": {
+    "p18_chain": {
+      "n_all": 272505,
+      "n_a1": 51230,
+      "kw_H_all": 64465.545773328755,
+      "kw_p_all": 0.0,
+      "kw_H_a1": 13275.45325827747,
+      "kw_p_a1": 0.0,
+      "pairwise_sig": 20,
+      "pairwise_total": 21,
+      "sampling_top1_keep_frozen": 50,
+      "sampling_reps_frozen": 50,
+      "sampling_top1_keep_refit": 8,
+      "sampling_reps_refit": 20,
+      "sampling_fullorder_frozen": 43,
+      "sampling_fullorder_refit": 0,
+      "ref": {
+        "kw_H": 15047,
+        "kw_p": 1e-300,
+        "pairwise": "21/21",
+        "sampling_top1_keep": "100%"
+      },
+      "domain_scores_full": {
+        "arxiv": 0.7968159862982731,
+        "book": 0.5805302743130676,
+        "c4": 0.501198132115684,
+        "commoncrawl": 0.569932990405643,
+        "github": 0.48150125753552764,
+        "stackexchange": 0.6269035644653221,
+        "wikipedia": 0.46073891571058223
+      }
+    },
+    "mix_prescribe": {
+      "ref_ridge_calibration": {
+        "lp_upper": 16.94636809154301,
+        "cap30_reg": 11.878775367522817,
+        "best_row": 2.978823600635942
+      },
+      "ours_e2": {
+        "lp_upper": 635.2610481778901,
+        "cap30_reg": 494.79944833005715,
+        "best_row": 15.157598685251791
+      },
+      "model_note": "参考三口径基于 test R²=0.585 的 Ridge; 我方基于 R²=0.896 的 ILR 二次 ENet(生产 E2)",
+      "ref_claim": {
+        "lp_upper": 16.9,
+        "cap30_reg": 11.9,
+        "best_row": 2.98
+      }
+    }
+  }
+}
