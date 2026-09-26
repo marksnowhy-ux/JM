@@ -106,6 +106,7 @@
 | `p58_q2_q3_align_v9.py` | v9 | 摘要对标·Q2/Q3：BIC 表（B8 twoQ ΔBIC=198）、同基准点弹性+175 点稳健 100%、等价参数、联合收益（校准逐位复现参考 9 档）、对数线性律、闭环轨迹族 |
 | `p59_q4_p1_align_v9.py` | v9 | 摘要对标·Q4/P1：C8 权重优化重建（CV Spearman 0.9935）、规模贡献 bootstrap CI（88.1%）、家族 LOO、P18 链 KW（H=64,465）+5% 抽样首位域 100% + 配比处方三口径（校准逐位复现） |
 | `p60_abstract_scorecard_v9.py` | v9 | 摘要逐项对标总表（27 项：优 18/平 3/口径差异 6 → outputs/摘要对标_v9.md） |
+| `p61_compare_yingao_v9.py` | v9 | 对照 YingaoZhang/math-modeling-f-question 指标对比总表（26 项：同源平局 8/增强占优 12/口径差异 6 → outputs/对比_YingaoZhang_v9.md；B1 验证层两者数值逐位一致） |
 
 ---
 
